@@ -1,0 +1,4 @@
+design potential storyboards for your application…
+- maybe start by creating one storyboard per team member
+- then validate and iterate
+- make sure your storyboards are detailed enough to simulate a real system
