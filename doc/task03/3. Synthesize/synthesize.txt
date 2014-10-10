@@ -1,0 +1,2 @@
+- collect and analyze all material in your group
+- define one or more personas as target user(s) for your application
