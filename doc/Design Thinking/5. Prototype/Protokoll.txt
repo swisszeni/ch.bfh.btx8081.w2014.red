@@ -1,3 +1,6 @@
 Gruppenentscheidung: Keine Notfallfunktion (Button) in App, da Benutzer mit Smartphone Nofallnummer wählen kann
 Gruppenentscheidung: Keine Diktierfunktion für Klientenjournal, da Technologie zu wenig ausgereift für med. Bereich
 Gruppenentscheidung: Setzen eines Klientenstatuses, verschiedene mögliche Varianten (z.B. Farben, Symbole, Text...)
+
+Frage: Sieht ein Benutzer aller Klienten oder nur die ihm zugewiesenen? Wer weist Klienten zu? Was passiert, wenn
+man für jemand anderen Einspringen muss? Wie kommt man zu seinen Klienten?
