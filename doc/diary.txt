@@ -8,6 +8,7 @@ Members:
   Zenhäusern Raphael (swisszeni)
 
 
+22.10.2014	Context Model besprochen und erstellt
 15.10.2014	Prototype mit Jan Gerber, Mitarbeiter Spitex "Mittelpunkt Mensch" besprochen
 12.10.2014	Zeichnen der Endfassung des Prototypes mit den Anpassungen
 10.10.2014: Entwerfen von Personae, Storyboard und Prototype
