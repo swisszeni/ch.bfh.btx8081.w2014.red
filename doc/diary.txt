@@ -6,7 +6,9 @@ Members:
   Schaad Philipp (schap18)
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
-
+  
+  
+31.10.2014: Entwürfe der UML-Diagramme designt und besprochen
 31.10.2014: Festlegen der wichtigsten Klassen, Klassendefintion (Methoden, Attribute)
 27.10.2014: Endfassung und Ausarbeitung der activity diagrams
 24.10.2014: Diskutieren und Skizieren der activity diagrams im Plenum
