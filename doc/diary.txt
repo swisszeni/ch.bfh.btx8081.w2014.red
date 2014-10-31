@@ -7,11 +7,12 @@ Members:
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
 
+31.10.2014: Festlegen der wichtigsten Klassen, Klassendefintion (Methoden, Attribute)
 27.10.2014: Endfassung und Ausarbeitung der activity diagrams
 24.10.2014: Diskutieren und Skizieren der activity diagrams im Plenum
-22.10.2014	Task 4 gestartet, Context Model besprochen und erstellt
-15.10.2014	Prototype mit Jan Gerber, Mitarbeiter Spitex "Mittelpunkt Mensch" besprochen
-12.10.2014	Zeichnen der Endfassung des Prototypes mit den Anpassungen
+22.10.2014:	Task 4 gestartet, Context Model besprochen und erstellt
+15.10.2014:	Prototype mit Jan Gerber, Mitarbeiter Spitex "Mittelpunkt Mensch" besprochen
+12.10.2014:	Zeichnen der Endfassung des Prototypes mit den Anpassungen
 10.10.2014: Entwerfen von Personae, Storyboard und Prototype
 09.10.2014: Telefonat mit Sozialarbeiterin  
 09.10.2014: Brainstorming Task 3: Mindmap erstellen über Tätigkeiten
