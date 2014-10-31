@@ -9,7 +9,7 @@ Members:
 
 27.10.2014: Endfassung und Ausarbeitung der activity diagrams
 24.10.2014: Diskutieren und Skizieren der activity diagrams im Plenum
-22.10.2014	Context Model besprochen und erstellt
+22.10.2014	Task 4 gestartet, Context Model besprochen und erstellt
 15.10.2014	Prototype mit Jan Gerber, Mitarbeiter Spitex "Mittelpunkt Mensch" besprochen
 12.10.2014	Zeichnen der Endfassung des Prototypes mit den Anpassungen
 10.10.2014: Entwerfen von Personae, Storyboard und Prototype
