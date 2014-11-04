@@ -7,9 +7,12 @@ Members:
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
   
+04.11.2014: UML verfeinert und mit Methoden aus Sequence Diagram ergänzt
 04.11.2014: UML Class Diagram überarbeitet und Kardinaltäten hinzugefügt
 02.11.2014: Entwurf UML Sequence Diagramm
 01.11.2014: UML Class Diagram digitalisiert
+04.11.2014: Sequence Diagrams fertiggestellt
+02.11.2014: Group-Meeting: Diskussion und Verteilung der Aufgaben
 31.10.2014: Entwürfe der UML-Diagramme designt und besprochen
 31.10.2014: Festlegen der wichtigsten Klassen, Klassendefintion (Methoden, Attribute)
 27.10.2014: Endfassung und Ausarbeitung der activity diagrams
