@@ -8,6 +8,7 @@ Members:
   Zenhäusern Raphael (swisszeni)
   
 04.11.2014: UML Class Diagram überarbeitet und Kardinaltäten hinzugefügt
+02.11.2014: Entwurf UML Sequence Diagramm
 01.11.2014: UML Class Diagram digitalisiert
 31.10.2014: Entwürfe der UML-Diagramme designt und besprochen
 31.10.2014: Festlegen der wichtigsten Klassen, Klassendefintion (Methoden, Attribute)
