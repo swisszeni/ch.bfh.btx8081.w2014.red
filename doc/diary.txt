@@ -6,7 +6,9 @@ Members:
   Schaad Philipp (schap18)
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
-  
+ 
+04.11.2014: CRC-Cards erstellt
+04.11.2014: Präsentation erstellt
 04.11.2014: UML verfeinert und mit Methoden aus Sequence Diagram ergänzt
 04.11.2014: UML Class Diagram überarbeitet und Kardinaltäten hinzugefügt
 02.11.2014: Entwurf UML Sequence Diagramm
