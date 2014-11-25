@@ -7,6 +7,9 @@ Members:
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
  
+25.11.2014:	Ausarbeiten von konkreten Entwürfen auf Papier
+24.11.2014:	Einzelentwürfe mit Einbezug Vaadin
+21.11.2014: Klären der Aufgabenstellung, Aufteilung Aufgaben
 04.11.2014: CRC-Cards erstellt
 04.11.2014: Präsentation erstellt
 04.11.2014: UML verfeinert und mit Methoden aus Sequence Diagram ergänzt
