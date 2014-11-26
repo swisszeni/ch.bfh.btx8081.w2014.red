@@ -6,7 +6,8 @@ Members:
   Schaad Philipp (schap18)
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
- 
+  
+26.11.2014: Entwuerfe digitalisieren 
 25.11.2014:	Ausarbeiten von konkreten Entwürfen auf Papier
 24.11.2014:	Einzelentwürfe mit Einbezug Vaadin
 21.11.2014: Klären der Aufgabenstellung, Aufteilung Aufgaben
