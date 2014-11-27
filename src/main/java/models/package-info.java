@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author aLiNe
+ * @author zauga5
  *
  */
 package models;

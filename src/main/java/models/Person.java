@@ -4,10 +4,8 @@ import java.util.GregorianCalendar;
 
 /* Defines an ID, lastname, firstname, address etc. from a specified Person */
 
-
-
 public class Person {
-	
+
 	private static int id = 0;
 	private String lastName;
 	private String firstName;
@@ -18,16 +16,15 @@ public class Person {
 	private String privateNr;
 	private String mobileNr;
 	private String pictureUri;
-	
+
 	private final int PERSONID;
-	
-	public Person ( String lastName, String firstName, Address address, 
-			GregorianCalendar birthday, String email, String businessNr, String privateNr, String mobileNr, 
-			String pictureUri )
-			
+
+	public Person(String lastName, String firstName, Address address,
+			GregorianCalendar birthday, String email, String businessNr,
+			String privateNr, String mobileNr, String pictureUri)
+
 	{
-		
-		
+
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.address = address;
@@ -37,11 +34,11 @@ public class Person {
 		this.privateNr = privateNr;
 		this.mobileNr = mobileNr;
 		this.pictureUri = pictureUri;
-		
-		id ++;
-		
+
+		id++;
+
 		this.PERSONID = id;
-	
+
 	}
 
 	public String getLastName() {
@@ -120,10 +117,9 @@ public class Person {
 		return PERSONID;
 	}
 
-	
 	/*
-	public void deletePerson (Person person) {
-		
-	}
-	*/
+	 * public void deletePerson (Person person) {
+	 * 
+	 * }
+	 */
 }

@@ -3,26 +3,22 @@ package models;
 import java.util.GregorianCalendar;
 
 public class Doctor extends Person {
-	
+
 	private String zsrNr;
 	private String specialication;
 	private Address workingAddress;
 
 	public Doctor(String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri, String zsrNr, String specialication, 
-			Address workingAddress) 
-	{
-		super(lastName, firstName, address, birthday, email, businessNr, privateNr,
-				mobileNr, pictureUri);
-		// TODO Auto-generated constructor stub
-		
+			String privateNr, String mobileNr, String pictureUri, String zsrNr,
+			String specialication, Address workingAddress) {
+		super(lastName, firstName, address, birthday, email, businessNr,
+				privateNr, mobileNr, pictureUri);
+
 		this.zsrNr = zsrNr;
 		this.specialication = specialication;
 		this.workingAddress = workingAddress;
-		
-		
-		
+
 	}
 
 	public String getZsrNr() {
@@ -49,5 +45,4 @@ public class Doctor extends Person {
 		this.workingAddress = workingAddress;
 	}
 
-	
 }
