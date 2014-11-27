@@ -14,6 +14,7 @@ public class Client extends Person {
 			String privateNr, String mobileNr, String pictureUri, boolean harmless, Person emergencyContact, Doctor doc) {
 		super(lastName, firstName, address, birthday, email, businessNr, privateNr,
 				mobileNr, pictureUri);
+		
 		// TODO Auto-generated constructor stub
 	
 		this.harmless = harmless;
