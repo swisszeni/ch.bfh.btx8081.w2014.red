@@ -2,7 +2,7 @@ package models;
 
 import java.util.GregorianCalendar;
 
-/* Defines an ID, lastname, firstname, address etc. from a specified Person */
+/* Defines a Person with the attributes lastname, firstname, address, birthday, email, business/private and mobile telephone number and an URI to a picture*/
 
 public class Person {
 

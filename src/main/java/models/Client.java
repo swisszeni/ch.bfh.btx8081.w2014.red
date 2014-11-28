@@ -2,8 +2,11 @@ package models;
 
 import java.util.GregorianCalendar;
 
+/* Defines a Client that extends all attributes of the Person class. Additional, there are the attributes harmless, an emergency contact of the client and the clients doctor*/
+
 public class Client extends Person {
 
+	/* this attribute shows if the patient is dangerous or not */
 	private boolean harmless;
 	private Person emergencyContact;
 	private Doctor doc;
@@ -14,7 +17,6 @@ public class Client extends Person {
 			boolean harmless, Person emergencyContact, Doctor doc) {
 		super(lastName, firstName, address, birthday, email, businessNr,
 				privateNr, mobileNr, pictureUri);
-
 
 		this.harmless = harmless;
 		this.emergencyContact = emergencyContact;

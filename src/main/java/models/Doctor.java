@@ -2,6 +2,8 @@ package models;
 
 import java.util.GregorianCalendar;
 
+/* Defines a Doctor that extends all attributes of the Person class. Additional, there are the attributes zsrNr, the doctors specialication and the doctors working address*/
+
 public class Doctor extends Person {
 
 	private String zsrNr;

@@ -9,7 +9,6 @@ public class Address {
 	private String city;
 	private String country;
 
-	/* creates an object of address class */
 	public Address(String street, String zip, String city, String country)
 
 	{
