@@ -1,0 +1,6 @@
+Entscheidungen:
+
+02.11.2014: UML-Diagram: einfache Linien verwendet, "instructions not clear"
+02.11.2014: getter nicht in den UML-Diagrammen aufgeführt weil:
+			(1) getter für die Klasse selber macht keinen Sinn
+			(2) getter für jede einzelne Variable wird zu unübersichtlich
