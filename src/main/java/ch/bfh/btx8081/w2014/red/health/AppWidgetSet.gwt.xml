@@ -33,5 +33,5 @@
     <inherits name="ch.bfh.btx8081.w2014.red.health.AppWidgetSet" />
 
 
-    <inherits name="demo.Demo_AppWidgetSet" />
+    
 </module>
