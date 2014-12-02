@@ -7,6 +7,9 @@ Members:
   Schnyder Florian (schnf8)
   Zenhäusern Raphael (swisszeni)
   
+02.12.2014: Gruppentreffen Bern nach Arbeit
+30.11.2014: Skype Konferenz Aline, Florian, Dominique, Raphael 
+28.11.2014: Aufteilen der Aufgaben bis Folgewoche
 26.11.2014: Entwuerfe digitalisieren 
 25.11.2014:	Ausarbeiten von konkreten Entwürfen auf Papier
 24.11.2014:	Einzelentwürfe mit Einbezug Vaadin
