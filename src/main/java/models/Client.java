@@ -11,12 +11,12 @@ public class Client extends Person {
 	private Person emergencyContact;
 	private Doctor doc;
 
-	public Client(String lastName, String firstName, Address address,
+	public Client(int personId, String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri, int personId,
+			String privateNr, String mobileNr, String pictureUri,
 			boolean harmless, Person emergencyContact, Doctor doc) {
-		super(lastName, firstName, address, birthday, email, businessNr,
-				privateNr, mobileNr, pictureUri, personId);
+		super(personId, lastName, firstName, address, birthday, email, businessNr,
+				privateNr, mobileNr, pictureUri);
 
 		this.harmless = harmless;
 		this.emergencyContact = emergencyContact;

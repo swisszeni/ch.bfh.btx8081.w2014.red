@@ -17,9 +17,9 @@ public class Person {
 	private String pictureUri;
 	private int personId;
 
-	public Person(String lastName, String firstName, Address address,
+	public Person(int personId, String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri, int personId)
+			String privateNr, String mobileNr, String pictureUri)
 
 	{
 
