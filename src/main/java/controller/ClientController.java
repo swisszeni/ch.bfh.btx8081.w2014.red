@@ -1,27 +1,36 @@
 package controller;
 
+import intelligentstuff.ClientDataHardcoded;
+import intelligentstuff.ClientDataSource;
+
 import java.util.List;
+
 import models.Client;
 import models.User;
 
 
 public class ClientController {
 	
-	private final String PICTURE_LOCATION = "..\\clients\\picture\\";
+	private static final String PICTURE_LOCATION = "..\\clients\\picture\\";
+	private static ClientDataSource dataSource;
 	
-	public Client getClientForID(int ClientID){
-		return null;
+	static {
+		dataSource = ClientDataHardcoded.getInstance();
 	}
 	
-	public List<Client> searchClientsByLastName(String lastName, String DetailLevel){
-		return null;
+	public static Client getClientForID(int clientID){
+		return dataSource.getClientForId(clientID);
 	}
 	
-	public List<Client> getClientsByUser(User user, String DetailLevel){
-		return null;
+	public static List<Client> searchClientsByLastName(String lastName, String DetailLevel){
+		return dataSource.searchClientsByLastName(lastName);
+	}
+	
+	public static List<Client> getClientsByUser(User user, String DetailLevel){
+		return dataSource.getClientsByUser(user);
 	}
 
-	public String createUriForProfilePicture(Client client){
+	public static String createUriForProfilePicture(Client client){
 		return PICTURE_LOCATION+client.getPictureUri();
 	}
 }
