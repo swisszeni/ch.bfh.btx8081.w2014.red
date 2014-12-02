@@ -12,10 +12,10 @@ public class Doctor extends Person {
 
 	public Doctor(String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri, String zsrNr,
+			String privateNr, String mobileNr, String pictureUri, int personId, String zsrNr,
 			String specialication, Address workingAddress) {
 		super(lastName, firstName, address, birthday, email, businessNr,
-				privateNr, mobileNr, pictureUri);
+				privateNr, mobileNr, pictureUri, personId);
 
 		this.zsrNr = zsrNr;
 		this.specialication = specialication;

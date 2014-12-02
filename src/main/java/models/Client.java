@@ -13,10 +13,10 @@ public class Client extends Person {
 
 	public Client(String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri,
+			String privateNr, String mobileNr, String pictureUri, int personId,
 			boolean harmless, Person emergencyContact, Doctor doc) {
 		super(lastName, firstName, address, birthday, email, businessNr,
-				privateNr, mobileNr, pictureUri);
+				privateNr, mobileNr, pictureUri, personId);
 
 		this.harmless = harmless;
 		this.emergencyContact = emergencyContact;

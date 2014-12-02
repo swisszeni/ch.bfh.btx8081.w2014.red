@@ -15,10 +15,11 @@ public class Person {
 	private String privateNr;
 	private String mobileNr;
 	private String pictureUri;
+	private int personId;
 
 	public Person(String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
-			String privateNr, String mobileNr, String pictureUri)
+			String privateNr, String mobileNr, String pictureUri, int personId)
 
 	{
 
@@ -31,6 +32,7 @@ public class Person {
 		this.privateNr = privateNr;
 		this.mobileNr = mobileNr;
 		this.pictureUri = pictureUri;
+		this.setPersonId(personId);
 
 	}
 
@@ -105,6 +107,16 @@ public class Person {
 	public void setPictureUri(String pictureUri) {
 		this.pictureUri = pictureUri;
 	}
+
+	public int getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(int personId) {
+		this.personId = personId;
+	}
+
+	
 
 	/*
 	 * public void deletePerson (Person person) {
