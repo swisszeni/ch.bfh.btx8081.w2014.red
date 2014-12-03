@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 
 public class Person {
 
+	private int personId;
 	private String lastName;
 	private String firstName;
 	private Address address;
@@ -15,7 +16,6 @@ public class Person {
 	private String privateNr;
 	private String mobileNr;
 	private String pictureUri;
-	private int personId;
 
 	public Person(int personId, String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
