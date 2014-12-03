@@ -40,18 +40,13 @@ public class ClientDataHardcoded implements ClientDataSource {
 	
 	@Override
 	public Client getClientForId(final int id) {
-		Predicate condition = new Predicate() {
-			   public boolean evaluate(Object sample) {
-			        return ((Client)sample).getPersonId() == id;
-			   }
-			};
-			@SuppressWarnings("unchecked")
-			List<Client> result = (List<Client>) CollectionUtils.select( clients, condition );
-			if(result.size() == 1) {
-				return result.get(0);
-			} else {
-				return null;
+		for(Client c : clients) {
+			if(c.getPersonId() == id) {
+				return c;
 			}
+		}
+		
+		return null;
 	}
 
 	@Override
