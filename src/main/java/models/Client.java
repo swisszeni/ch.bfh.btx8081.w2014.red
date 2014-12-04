@@ -22,6 +22,7 @@ public class Client extends Person {
 		this.harmless = harmless;
 		this.emergencyContact = emergencyContact;
 		this.doc = doc;
+		journal = new Journal();
 
 	}
 
