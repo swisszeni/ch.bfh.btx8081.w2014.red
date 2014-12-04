@@ -33,7 +33,8 @@ public class LoginView extends CustomComponent implements View {
                 new Button.ClickListener() {
             @Override
             public void buttonClick(ClickEvent event) {
-                MainUI.navigator.navigateTo(MainUI.CLIENTVIEW + "/" + "13455");
+            	MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
+                //MainUI.navigator.navigateTo(MainUI.CLIENTVIEW + "/" + "13455");
             }
         });
         loginButton.setWidth("300px");
