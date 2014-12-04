@@ -306,16 +306,16 @@ public class ClientView extends CustomComponent implements View {
 	}
 
 	//Set for all client information fields the ReadOnly state
-	private void setClientDataToReadOnly() {
-		field_lastname.setReadOnly(true);
-		field_firstname.setReadOnly(true);
-		field_birthdate.setReadOnly(true);
-		field_address.setReadOnly(true);
-		field_mobile.setReadOnly(true);
-		field_mobile.setReadOnly(true);
-		field_email.setReadOnly(true);
-		field_emergency.setReadOnly(true);
-		field_doctor.setReadOnly(true);
+	private void setClientDataToReadOnly(boolean readOnly) {
+		field_lastname.setReadOnly(readOnly);
+		field_firstname.setReadOnly(readOnly);
+		field_birthdate.setReadOnly(readOnly);
+		field_address.setReadOnly(readOnly);
+		field_mobile.setReadOnly(readOnly);
+		field_mobile.setReadOnly(readOnly);
+		field_email.setReadOnly(readOnly);
+		field_emergency.setReadOnly(readOnly);
+		field_doctor.setReadOnly(readOnly);
 	}
 
 	private void loadClientData(Client c) {
@@ -330,7 +330,7 @@ public class ClientView extends CustomComponent implements View {
 		field_doctor.setValue("Doktor Zoidberg");
 		// field_doctor.setValue(c.getDoc().toString());
 
-		setClientDataToReadOnly();
+		setClientDataToReadOnly(true);
 		// FileResource res = new FileResource(new File(c.getPictureUri()));
 
 	}
