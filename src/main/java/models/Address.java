@@ -50,5 +50,10 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	public String toString(){
+		return this.street + ", " + this.zip + " " + this.city + ", " + this.country;
+		
+	}
 
 }
