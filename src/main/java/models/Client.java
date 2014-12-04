@@ -10,6 +10,7 @@ public class Client extends Person {
 	private boolean harmless;
 	private Person emergencyContact;
 	private Doctor doc;
+	private Journal journal;
 
 	public Client(int personId, String lastName, String firstName, Address address,
 			GregorianCalendar birthday, String email, String businessNr,
@@ -47,5 +48,10 @@ public class Client extends Person {
 	public void setDoc(Doctor doc) {
 		this.doc = doc;
 	}
+
+	public Journal getJournal() {
+		return journal;
+	}
+
 
 }
