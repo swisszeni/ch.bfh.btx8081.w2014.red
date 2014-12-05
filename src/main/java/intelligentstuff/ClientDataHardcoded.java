@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 
 import models.Address;
 import models.Client;
+import models.Doctor;
 import models.Person;
 import models.User;
 
@@ -16,13 +17,20 @@ public class ClientDataHardcoded implements ClientDataSource {
 	
 	private ClientDataHardcoded() {
 		clients = new ArrayList<Client>();
+		
+		
+		Doctor zoid = new Doctor(1987345, "Zoidberg", "Dr John A.", null, null, "zoidberg@planetexpress.com", null, null, null, null, null, null, null);
+		Doctor fry = new Doctor(122345, "Fry", "Philip J.", null, null, "fry@planetexpress.com", null, null, null, null, null, null, null);
+		
+		Person emer1 = new Person(889, "Notfall", "Kontakt", new Address("Strasse", "Z1P", "Staaadt", "Laaaand"), null, null, null, null, null, null);
+		Person emer2 = new Person(756769, "Leela", "Turanga", null, null, "leela@deliveryexpress.com", null, null, null, null);
+		
 		clients.add(new Client(1, "Muster", "Hans", null,
 				null, "muster@mail.ch", null,
 				null, null, null,
-				true, null, null));
-		
-		clients.add(new Client(13455, "Heinzmann", "Steffie", new Address("Penisstrasse", "9001", "Bern", "Schweiz"), new GregorianCalendar(1900, 01, 01), "sokm@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch", false, null, null));
-		clients.add(new Client(888, "Mosimann", "Sophie", new Address("Quellgasse", "2500", "Biel", "Schweiz"), new GregorianCalendar(1990, 01, 01), "so@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, new Person(889, "Notfall", "Kontakt", new Address("Strasse", "Z1P", "Staaadt", "Laaaand"), null, null, null, null, null, null), null));
+				true, fry, zoid));
+		clients.add(new Client(13455, "Heinzmann", "Steffie", new Address("Penisstrasse", "9001", "Bern", "Schweiz"), new GregorianCalendar(1900, 01, 01), "sokm@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch", false, emer2, zoid));
+		clients.add(new Client(888, "Mosimann", "Sophie", new Address("Quellgasse", "2500", "Biel", "Schweiz"), new GregorianCalendar(1990, 01, 01), "so@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, emer1, fry));
 	}
 	
 	public static ClientDataHardcoded getInstance () {
