@@ -299,6 +299,7 @@ public class ClientView extends CustomComponent implements View {
 		loadClientData(client);
 		setClientDataToReadOnly(true);
 
+		
 	}
 
 	// Hide or show the attributes of the detail part (street, zip, city,

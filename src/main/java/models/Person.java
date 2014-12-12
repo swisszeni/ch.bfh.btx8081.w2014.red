@@ -1,6 +1,6 @@
 package models;
 
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 /* Defines a Person with the attributes lastname, firstname, address, birthday, email, business/private and mobile telephone number and an URI to a picture*/
 
@@ -10,7 +10,7 @@ public class Person {
 	private String lastName;
 	private String firstName;
 	private Address address;
-	private GregorianCalendar birthday;
+	private Date birthday;
 	private String email;
 	private String businessNr;
 	private String privateNr;
@@ -18,7 +18,7 @@ public class Person {
 	private String pictureUri;
 
 	public Person(int personId, String lastName, String firstName, Address address,
-			GregorianCalendar birthday, String email, String businessNr,
+			Date birthday, String email, String businessNr,
 			String privateNr, String mobileNr, String pictureUri)
 
 	{
@@ -60,11 +60,11 @@ public class Person {
 		this.address = address;
 	}
 
-	public GregorianCalendar getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(GregorianCalendar birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

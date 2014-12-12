@@ -1,8 +1,8 @@
 package intelligentstuff;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.GregorianCalendar;
 
 import models.Address;
 import models.Client;
@@ -15,6 +15,7 @@ public class ClientDataHardcoded implements ClientDataSource {
 	private static ClientDataHardcoded instance;
 	private static List<Client> clients;
 	
+	@SuppressWarnings("deprecation")
 	private ClientDataHardcoded() {
 		clients = new ArrayList<Client>();
 		
@@ -29,8 +30,8 @@ public class ClientDataHardcoded implements ClientDataSource {
 				null, "muster@mail.ch", null,
 				null, null, null,
 				true, fry, zoid));
-		clients.add(new Client(13455, "Heinzmann", "Steffie", new Address("Penisstrasse", "9001", "Bern", "Schweiz"), new GregorianCalendar(1900, 01, 01), "sokm@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch", false, emer2, zoid));
-		clients.add(new Client(888, "Mosimann", "Sophie", new Address("Quellgasse", "2500", "Biel", "Schweiz"), new GregorianCalendar(1990, 01, 01), "so@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, emer1, fry));
+		clients.add(new Client(13455, "Heinzmann", "Steffie", new Address("Penisstrasse", "9001", "Bern", "Schweiz"), new Date(1900, 01, 01), "sokm@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch", false, emer2, zoid));
+		clients.add(new Client(888, "Mosimann", "Sophie", new Address("Quellgasse", "2500", "Biel", "Schweiz"), new Date(1990, 01, 01), "so@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, emer1, fry));
 	}
 	
 	public static ClientDataHardcoded getInstance () {

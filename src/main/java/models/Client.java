@@ -1,6 +1,6 @@
 package models;
 
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 /* Defines a Client that extends all attributes of the Person class. Additional, there are the attributes harmless, an emergency contact of the client and the clients doctor*/
 
@@ -13,7 +13,7 @@ public class Client extends Person {
 	private Journal journal;
 
 	public Client(int personId, String lastName, String firstName, Address address,
-			GregorianCalendar birthday, String email, String businessNr,
+			Date birthday, String email, String businessNr,
 			String privateNr, String mobileNr, String pictureUri,
 			boolean harmless, Person emergencyContact, Doctor doc) {
 		super(personId, lastName, firstName, address, birthday, email, businessNr,
