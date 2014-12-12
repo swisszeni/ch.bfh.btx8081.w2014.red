@@ -297,10 +297,12 @@ public class ClientView extends CustomComponent implements View {
 
 		setClientDataToReadOnly(false);
 		loadClientData(client);
+		setClientDataToReadOnly(true);
 
 	}
 
-	// Hide or show the attributes of the detail part of the ClientUI
+	// Hide or show the attributes of the detail part (street, zip, city,
+	// country, mobile, email, emergency contact and doctor of the ClientUI
 	private void hideOrShowDetails() {
 		if (isHidden == true) {
 			isHidden = false;
@@ -373,8 +375,6 @@ public class ClientView extends CustomComponent implements View {
 		field_showstatus.setValue(c.isHarmless() ? "harmless" : "harmful");
 
 		addItemPropertyToField(c);
-
-		setClientDataToReadOnly(true);
 
 	}
 
