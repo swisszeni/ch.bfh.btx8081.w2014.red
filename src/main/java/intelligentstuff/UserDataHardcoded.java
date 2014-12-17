@@ -19,10 +19,12 @@ public class UserDataHardcoded implements UserDataSource {
 		User testUser = new User(3243243, null, null, null, null, null, null, null, null, null, "Florian", "gay");
 		User testUser2 = new User(324232, null, null, null, null, null, null, null, null, null, "Philipp", "abc");
 		User testUser3 = new User(265656, null, null, null, null, null, null, null, null, null, "test@test.com", "passw0rd");
+		User testUser4 = new User(45345345, null, null, null, null, null, null, null, null, null, "Dominique", "123");
 
 		users.add(0, testUser);
 		users.add(1, testUser2);
 		users.add(2, testUser3);
+		users.add(3, testUser4);
 	}
 
 	public static UserDataHardcoded getInstance() {
