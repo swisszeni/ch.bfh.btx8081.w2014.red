@@ -14,8 +14,8 @@ public class UserDataHardcoded implements UserDataSource {
 	private static UserDataHardcoded instance;
 	private static List<User> users;
 
-	// Generates an ArrayList with two hardcoded users
-	private UserDataHardcoded() throws NoSuchAlgorithmException {
+	// The constructor generates an ArrayList with several hardcoded users.
+	private UserDataHardcoded() {
 		users = new ArrayList<User>();
 
 		User testUser = new User(3243243, null, null, null, null, null, null, null, null, null, "Florian", getHashAsString("gay"));
@@ -29,14 +29,10 @@ public class UserDataHardcoded implements UserDataSource {
 		users.add(3, testUser4);
 	}
 
+	// This method generates the only instance of the UserDataHardcoded class
 	public static UserDataHardcoded getInstance() {
 		if (UserDataHardcoded.instance == null) {
-			try {
-				UserDataHardcoded.instance = new UserDataHardcoded();
-			} catch (NoSuchAlgorithmException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			UserDataHardcoded.instance = new UserDataHardcoded();
 		}
 
 		return UserDataHardcoded.instance;
@@ -48,6 +44,9 @@ public class UserDataHardcoded implements UserDataSource {
 	}
 
 	@Override
+	// Check if there is a match for username and password. If yes, the method
+	// returns the User object.
+	// If there is no match, the method returns null
 	public User getUserForUsernameAndPassword(String username, String password) {
 		for (User user : users) {
 			if (user.getUsername().equals(username)
@@ -70,16 +69,22 @@ public class UserDataHardcoded implements UserDataSource {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	// This method hashes the passwords for the hardcoded Users
-	public String getHashAsString(String password)
-			throws NoSuchAlgorithmException {
-		byte[] passwordHash;
+	public String getHashAsString(String password) {
+		byte[] passwordHashByte = null;
 		MessageDigest md;
-		md = MessageDigest.getInstance("SHA-512");
-		md.update(password.getBytes());
-		passwordHash = md.digest();
-		return new String(passwordHash);
+		String passwordHashString;
+		try {
+			md = MessageDigest.getInstance("SHA-512");
+			md.update(password.getBytes());
+			passwordHashByte = md.digest();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		passwordHashString = new String(passwordHashByte);
+		return passwordHashString;
 	}
 
 }

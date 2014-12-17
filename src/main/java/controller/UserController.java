@@ -20,26 +20,27 @@ public class UserController {
 			String password) {
 
 		String hashedPassword = null;
-		try {
-			hashedPassword = getHashAsString(password);
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		hashedPassword = getHashAsString(password);
 
 		return dataSource.getUserForUsernameAndPassword(username,
 				hashedPassword);
 
 	}
 
-	public static String getHashAsString(String password)
-			throws NoSuchAlgorithmException {
-		byte[] passwordHash;
+	public static String getHashAsString(String password) {
+		byte[] passwordHashByte = null;
 		MessageDigest md;
-		md = MessageDigest.getInstance("SHA-512");
-		md.update(password.getBytes());
-		passwordHash = md.digest();
-		return new String(passwordHash);
+		String passwordHashString;
+		try {
+			md = MessageDigest.getInstance("SHA-512");
+			md.update(password.getBytes());
+			passwordHashByte = md.digest();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 passwordHashString = new String(passwordHashByte);
+		 return passwordHashString;
 	}
 
 	// public static void createNewUser(int personId, String lastName, String

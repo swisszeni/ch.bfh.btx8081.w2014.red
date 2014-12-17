@@ -1,10 +1,5 @@
 package ch.bfh.btx8081.w2014.red.health;
 
-import intelligentstuff.UserDataSource;
-
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
-
 import models.User;
 
 import com.vaadin.navigator.View;
@@ -21,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import controller.UserController;
 
-public class LoginView extends CustomComponent implements View, UserDataSource {
+public class LoginView extends CustomComponent implements View {
 
 	TextArea wrongInput = new TextArea();
 	TextField user = new TextField("Benutzername");
@@ -57,14 +52,7 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 		Button loginButton = new Button("Login", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				try {
-					checkUserAndPasswordFieldWithDatabase();
-				} catch (NoSuchAlgorithmException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				// MainUI.navigator.navigateTo(MainUI.CLIENTVIEW + "/" +
-				// "13455");
+				handelLoginResult(userAndPasswordCombinationExistInDatabase());
 			}
 		});
 		loginButton.setWidth("300px");
@@ -92,46 +80,24 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 	// this method compares the username and the userpassword with the userdata
 	// in the database.
 
-	public void checkUserAndPasswordFieldWithDatabase()
-			throws NoSuchAlgorithmException {
-
-		// Provides the username and the unhashed userpassword to the
-		// UserContorller
+	private boolean userAndPasswordCombinationExistInDatabase() {
 		User testUser = UserController.getUserForUsernameAndPassword(
 				user.getValue(), password.getValue());
 
-		if (testUser != null) {
+		return testUser != null;
 
+	}
+
+	private void handelLoginResult(boolean loginResult) {
+
+		if (loginResult) {
 			MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
 
+		} else {
+			wrongInput.setVisible(true);
+			password.setValue("");
 		}
-		wrongInput.setVisible(true);
-		password.setValue("");
 
-	}
-
-	@Override
-	public User getUserForId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public User getUserForUsernameAndPassword(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<User> getUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<User> getUserss(int offset, int limit) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
