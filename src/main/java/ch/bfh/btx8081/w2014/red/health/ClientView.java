@@ -2,7 +2,6 @@ package ch.bfh.btx8081.w2014.red.health;
 
 import java.io.File;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
 import models.Address;
 import models.Client;
 
