@@ -12,16 +12,13 @@ public class UserDataHardcoded implements UserDataSource {
 	private static UserDataHardcoded instance;
 	private static List<User> users;
 
-	// private UserDataHardcoded() {
-	// TODO Auto-generated constructor stub
-
 	// Generates an ArrayList with two hardcoded users
-	public UserDataHardcoded() {
+	private UserDataHardcoded() {
 		users = new ArrayList<User>();
 
-		User testUser = new User("Florian", "gay");
-		User testUser2 = new User("Philipp", "abc");
-		User testUser3 = new User("test@test.com", "passw0rd");
+		User testUser = new User(3243243, null, null, null, null, null, null, null, null, null, "Florian", "gay");
+		User testUser2 = new User(324232, null, null, null, null, null, null, null, null, null, "Philipp", "abc");
+		User testUser3 = new User(265656, null, null, null, null, null, null, null, null, null, "test@test.com", "passw0rd");
 
 		users.add(0, testUser);
 		users.add(1, testUser2);
