@@ -12,11 +12,11 @@ import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 
 /** Main view with a menu */
+@SuppressWarnings("serial")
 public class ClientsView extends VerticalLayout implements View {
 	
 	private final Table table;
 
-    @SuppressWarnings("serial")
 	public ClientsView() {
         setSizeFull();
         
