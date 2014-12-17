@@ -103,7 +103,7 @@ public class LoginView extends CustomComponent implements View {
 	private void handleLoginResult(User loginUser) {
 		if (loginUser != null) {
 			getSession().setAttribute("user", loginUser);
-			MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
+			MainUI.navigator.navigateTo(MainUI.LANDINGVIEW);
 		} else {
 			Notification.show("Invalid login credentials!");
 			password.setValue("");
