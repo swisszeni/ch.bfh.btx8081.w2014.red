@@ -103,7 +103,7 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 		userPasswordHashed = getHashAsByteArray(password.getValue());
 
 		// add two test users
-		UserDataHardcoded testCase = new UserDataHardcoded();
+		UserDataHardcoded testCase = UserDataHardcoded.getInstance();
 		List<User> testUsers = testCase.getUsers();
 
 		for (User user : testUsers) {
@@ -145,7 +145,8 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 		return null;
 	}
 
-	// This method hashes a given password. The return value is an byte Array of 512 bits
+	// This method hashes a given password. The return value is an byte Array of
+	// 512 bits
 	public byte[] getHashAsByteArray(String password)
 			throws NoSuchAlgorithmException {
 		byte[] passwordHash;
