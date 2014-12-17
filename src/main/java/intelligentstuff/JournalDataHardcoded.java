@@ -15,8 +15,8 @@ public class JournalDataHardcoded implements JournalDataSource{
 	private JournalDataHardcoded() {
 		journalEntries = new ArrayList<JournalEntry>();
 
-		JournalEntry testEntry = new JournalEntry(null,null, 888, "Test");
-		JournalEntry testEntry2 = new JournalEntry(null,null, 888, "Blubb");		
+		JournalEntry testEntry = new JournalEntry(null,null, 888, "Besuch zu Hause verlief ohne Zwischenfälle.");
+		JournalEntry testEntry2 = new JournalEntry(null,null, 888, "Client hat gestern Abend und heute Morgen die Medikamente nicht eingenommen. Angeblich hat er es 'vergessen'.");		
 
 		journalEntries.add(0, testEntry);
 		journalEntries.add(1, testEntry2);
