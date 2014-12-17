@@ -1,11 +1,8 @@
 package ch.bfh.btx8081.w2014.red.health;
 
-import intelligentstuff.UserDataHardcoded;
 import intelligentstuff.UserDataSource;
 
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.List;
 
 import models.User;
@@ -22,10 +19,10 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
+import controller.UserController;
+
 public class LoginView extends CustomComponent implements View, UserDataSource {
 
-	private String thisUser;
-	byte[] userPasswordHashed;
 	TextArea wrongInput = new TextArea();
 	TextField user = new TextField("Benutzername");
 	PasswordField password = new PasswordField("Passwort");
@@ -61,7 +58,7 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				try {
-					compareUserAndPasswordFieldWithDatabase();
+					checkUserAndPasswordFieldWithDatabase();
 				} catch (NoSuchAlgorithmException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -95,26 +92,18 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 	// this method compares the username and the userpassword with the userdata
 	// in the database.
 
-	public void compareUserAndPasswordFieldWithDatabase()
+	public void checkUserAndPasswordFieldWithDatabase()
 			throws NoSuchAlgorithmException {
 
-		// Get the username and the hashed userpassword
-		thisUser = user.getValue();
-		userPasswordHashed = getHashAsByteArray(password.getValue());
+		// Provides the username and the unhashed userpassword to the
+		// UserContorller
+		User testUser = UserController.getUserForUsernameAndPassword(
+				user.getValue(), password.getValue());
 
-		// add two test users
-		UserDataHardcoded testCase = UserDataHardcoded.getInstance();
-		List<User> testUsers = testCase.getUsers();
+		if (testUser != null) {
 
-		for (User user : testUsers) {
-			byte[] hashedPassword = getHashAsByteArray(user.getPassword());
+			MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
 
-			if (thisUser.equals(user.getUsername())
-					&& (Arrays.equals(userPasswordHashed, hashedPassword))) {
-
-				MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
-
-			}
 		}
 		wrongInput.setVisible(true);
 		password.setValue("");
@@ -145,15 +134,4 @@ public class LoginView extends CustomComponent implements View, UserDataSource {
 		return null;
 	}
 
-	// This method hashes a given password. The return value is an byte Array of
-	// 512 bits
-	public byte[] getHashAsByteArray(String password)
-			throws NoSuchAlgorithmException {
-		byte[] passwordHash;
-		MessageDigest md;
-		md = MessageDigest.getInstance("SHA-512");
-		md.update(password.getBytes());
-		passwordHash = md.digest();
-		return passwordHash;
-	}
 }
