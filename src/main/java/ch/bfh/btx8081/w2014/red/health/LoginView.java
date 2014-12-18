@@ -18,6 +18,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 import controller.UserController;
@@ -103,7 +104,7 @@ public class LoginView extends CustomComponent implements View {
 	private void handleLoginResult(User loginUser) {
 		if (loginUser != null) {
 			getSession().setAttribute("user", loginUser);
-			MainUI.navigator.navigateTo(MainUI.LANDINGVIEW);
+			((MainUI)UI.getCurrent()).navigator.navigateTo(MainUI.LANDINGVIEW);
 		} else {
 			Notification.show("Invalid login credentials!");
 			password.setValue("");

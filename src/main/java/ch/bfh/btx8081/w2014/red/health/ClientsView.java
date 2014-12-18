@@ -9,6 +9,7 @@ import com.vaadin.data.util.BeanContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Table;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /** Main view with a menu */
@@ -43,7 +44,7 @@ public class ClientsView extends VerticalLayout implements View {
             	Object id = table.getValue();
             	if(id != null) {
             		table.unselect(table.getValue());
-            		MainUI.navigator.navigateTo(MainUI.CLIENTVIEW + "/" + id);
+            		((MainUI)UI.getCurrent()).navigator.navigateTo(MainUI.CLIENTVIEW + "/" + id);
             	}
             }
         });

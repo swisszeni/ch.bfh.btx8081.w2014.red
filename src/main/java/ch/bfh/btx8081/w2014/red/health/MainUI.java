@@ -26,7 +26,7 @@ public class MainUI extends UI {
 	}
 	
 	private HorizontalLayout menuContent;
-    protected static Navigator navigator;
+    protected Navigator navigator;
     protected static final String LANDINGVIEW = "";
     protected static final String LOGINVIEW = "login";
     protected static final String CLIENTVIEW = "client";

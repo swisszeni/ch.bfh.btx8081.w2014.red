@@ -20,6 +20,7 @@ import com.vaadin.ui.DateField;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.HorizontalLayout;
 
@@ -164,6 +165,7 @@ public class ClientView extends CustomComponent implements View {
 		// Adds the components to a panel viewing them on top of each other			
 		VerticalLayout v1 = new VerticalLayout();
 		v1.addComponents(button_return, embedded_picture, hbuttons);
+		//v1.addComponents(embedded_picture, hbuttons);
         v1.setSpacing(true);
         v1.setMargin(new MarginInfo(true, true, true, false));
 		v1.setSizeUndefined();
@@ -280,7 +282,7 @@ public class ClientView extends CustomComponent implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
+				((MainUI)UI.getCurrent()).navigator.navigateTo(MainUI.CLIENTSVIEW);
 			}
 		});
 

@@ -9,6 +9,7 @@ import models.User;
 
 
 
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -19,6 +20,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -36,7 +38,7 @@ public class LandingView extends CustomComponent implements View {
 		Button toClients = new Button("GET  TO  DA  CHOPPA!!!", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				MainUI.navigator.navigateTo(MainUI.CLIENTSVIEW);
+				((MainUI)UI.getCurrent()).navigator.navigateTo(MainUI.CLIENTSVIEW);
 			}
 		});
 		
