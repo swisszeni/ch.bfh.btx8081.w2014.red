@@ -1,5 +1,7 @@
 package ch.bfh.btx8081.w2014.red.health;
 
+import java.util.ArrayList;
+
 import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
@@ -26,6 +28,7 @@ public class MainUI extends UI {
 	}
 	
 	private HorizontalLayout menuContent;
+	private ArrayList<Component> externalMenuContent;
     protected Navigator navigator;
     protected static final String LANDINGVIEW = "";
     protected static final String LOGINVIEW = "login";
@@ -47,6 +50,7 @@ public class MainUI extends UI {
         menuBar.setHeight(null);
         menuBar.setWidth("100%");
         menuContent = new HorizontalLayout();
+        externalMenuContent = new ArrayList<Component>();
         Button menuButton = new Button("Menu");
         menuContent.addComponent(menuButton);
         menuContent.setWidth(null);
@@ -83,7 +87,9 @@ public class MainUI extends UI {
 			
 			@Override
 			public boolean beforeViewChange(ViewChangeEvent event) {
-
+				// Remove all the external menu elements from the old view
+				removeExternalMenuElements();
+				
                 // Check if user is logged in or loginview is requested
                 boolean isLoggedIn = getSession().getAttribute("user") != null;
                 boolean isLoginView = event.getNewView() instanceof LoginView;
@@ -104,18 +110,26 @@ public class MainUI extends UI {
 			
 			@Override
 			public void afterViewChange(ViewChangeEvent event) {
-
+				
 			}
 		});
         
     }
     
     protected void addMenuElement(Component c) {
+    	externalMenuContent.add(c);
     	menuContent.addComponent(c);
     }
     
     protected void removeMenuElement(Component c) {
     	menuContent.removeComponent(c);
+    }
+    
+    protected void removeExternalMenuElements() {
+    	for (Component component : externalMenuContent) {
+    		menuContent.removeComponent(component);
+		}
+    	externalMenuContent.clear();
     }
 
 }

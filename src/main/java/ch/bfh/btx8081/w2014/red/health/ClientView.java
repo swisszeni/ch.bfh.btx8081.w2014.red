@@ -164,8 +164,8 @@ public class ClientView extends CustomComponent implements View {
 		
 		// Adds the components to a panel viewing them on top of each other			
 		VerticalLayout v1 = new VerticalLayout();
-		v1.addComponents(button_return, embedded_picture, hbuttons);
-		//v1.addComponents(embedded_picture, hbuttons);
+		//v1.addComponents(button_return, embedded_picture, hbuttons);
+		v1.addComponents(embedded_picture, hbuttons);
         v1.setSpacing(true);
         v1.setMargin(new MarginInfo(true, true, true, false));
 		v1.setSizeUndefined();
@@ -290,6 +290,7 @@ public class ClientView extends CustomComponent implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
+		// Check if valid client
 		if (event.getParameters() == null || event.getParameters().isEmpty()) {
 			setCaption("Kein Klient übermittelt");
 			return;
@@ -306,8 +307,10 @@ public class ClientView extends CustomComponent implements View {
 		loadClientData(client);
 		setClientDataToReadOnly(true);
 
-		
+		// add return button
+		((MainUI)UI.getCurrent()).addMenuElement(button_return);
 	}
+	
 
 	// Hide or show the attributes of the detail part (street, zip, city,
 	// country, mobile, email, emergency contact and doctor of the ClientUI
