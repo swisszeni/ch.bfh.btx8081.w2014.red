@@ -18,7 +18,9 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Embedded;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -206,12 +208,34 @@ public class ClientView extends CustomComponent implements View {
 		VerticalLayout v4 = new VerticalLayout();
 		v4.addComponents(h1, v3);
 		v4.setSizeUndefined();
+		
+		Panel p = new Panel ("ClientView");
+//		p.addStyleName("panel_clientView");
+		p.setWidth("");;
+		p.setSizeFull();
+//	    p.getContent().setSizeUndefined();
+	  
+	 // Create a layout inside the panel
+	    final FormLayout form = new FormLayout();
+	    form.setSizeFull();
+	    
+
+	    // Have some margin around it.
+	    form.setMargin(true);
+
+	    // Add some components
+	    form.addComponents(v4);
+//	    form.addComponent(new HorizontalLayout());
+
+	    // Set the layout as the root layout of the panel
+	    p.setContent(form);
+		
+		
 	
-	
-		// and the VerticalLAyout v4 into another VerticalLayout for formatting and sets the Alignment to Middle Center
-		VerticalLayout viewLayout = new VerticalLayout(v4);
+		// add the Panel into another VerticalLayout for formatting and sets the Alignment to Middle Center
+		VerticalLayout viewLayout = new VerticalLayout(form);
 		viewLayout.setSizeFull();
-		viewLayout.setComponentAlignment(v4, Alignment.TOP_CENTER);
+		viewLayout.setComponentAlignment(form, Alignment.TOP_CENTER);
 		setCompositionRoot(viewLayout);
 				
 		
