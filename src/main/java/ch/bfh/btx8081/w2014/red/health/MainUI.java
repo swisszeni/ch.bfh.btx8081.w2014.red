@@ -34,6 +34,7 @@ public class MainUI extends UI {
     protected static final String LOGINVIEW = "login";
     protected static final String CLIENTVIEW = "client";
     protected static final String CLIENTSVIEW = "clients";
+    protected static final String JOURNALVIEW = "journal";
 
     @Override
     protected void init(VaadinRequest request) {
@@ -81,6 +82,7 @@ public class MainUI extends UI {
         navigator.addView(LOGINVIEW, LoginView.class);
         navigator.addView(CLIENTVIEW, ClientView.class);
         navigator.addView(CLIENTSVIEW, ClientsView.class);
+        navigator.addView(JOURNALVIEW, JournalView.class);
         
         // Change Listener to prevent viewing protected views without being logged in
         navigator.addViewChangeListener(new ViewChangeListener() {
