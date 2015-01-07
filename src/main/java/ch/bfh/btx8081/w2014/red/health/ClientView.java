@@ -295,6 +295,8 @@ public class ClientView extends CustomComponent implements View {
 
 					}
 				});
+				
+				
 		
 		// the action when the "Cancel" button has been clicked. Cancel edit textfields from details
 				button_cancel.addClickListener(new Button.ClickListener() {
@@ -393,7 +395,6 @@ public class ClientView extends CustomComponent implements View {
 
 	// loads the client data to the related variables
 	private void loadClientData(Client c) {
-
 		field_emergency.setValue(c.getEmergencyContact().getFirstName() + " "
 				+ c.getEmergencyContact().getLastName());
 		field_doctor.setValue(c.getDoc().getFirstName() + " "
@@ -406,7 +407,15 @@ public class ClientView extends CustomComponent implements View {
 
 	// binds the client datas to the related field
 
-	private void addItemPropertyToField(Client c) {
+	private void addItemPropertyToField(final Client c) {
+		button_journal.addClickListener(new Button.ClickListener() {
+
+			// Save textfields from details
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MainUI)UI.getCurrent()).navigator.navigateTo(MainUI.JOURNALVIEW + "/" + c.getPersonId());
+			}
+		});
 
 		BeanItem<Client> item = new BeanItem<Client>(c);
 
