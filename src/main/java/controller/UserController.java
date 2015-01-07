@@ -38,6 +38,7 @@ public class UserController {
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return "";
 		}
 		 passwordHashString = new String(passwordHashByte);
 		 return passwordHashString;

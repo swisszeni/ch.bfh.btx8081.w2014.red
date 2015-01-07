@@ -21,10 +21,23 @@ public class UserDataHardcoded implements UserDataSource {
 	private UserDataHardcoded() {
 		users = new ArrayList<User>();
 
-		User testUser = new User(3243243, "Schnyder", "Florian", new Address("Dorfstrasse", "3534", "Signau", "Schweiz"), new Date(1988,03,03), "flo88@gmx.ch", "04545435", "454353544", "4343234342", "www.google.com", "Florian", getHashAsString("gay"));
-		User testUser2 = new User(324232, "Schaad", "Philipp", new Address("Ghettostrasse 1", "4500", "Olten", "Deutschland"), new Date(1987, 04,04), "schaadli@bluewin.ch", "4534354354", "543543543", "4334434", "www.google.com", "Philipp", getHashAsString("abc"));
-		User testUser3 = new User(265656, "Testerli", "Ruedi", null, null, null, null, null, null, null, "test@test.com", getHashAsString("passw0rd"));
-		User testUser4 = new User(45345345, "Walther", "Dominque Cathrine", new Address("Friburgstrasse", "2500", "Freiburg", "Schweiz"), new Date(1988,01,01), "domi@bfh.ch", "434343432", "343243343", "24343242", "www.bing.com", "Dominique", getHashAsString("123"));
+		User testUser = new User(3243243, "Schnyder", "Florian", new Address(
+				"Dorfstrasse", "3534", "Signau", "Schweiz"), new Date(1988, 03,
+				03), "flo88@gmx.ch", "04545435", "454353544", "4343234342",
+				"www.google.com", "Florian", getHashAsString("gay"));
+		User testUser2 = new User(324232, "Schaad", "Philipp", new Address(
+				"Ghettostrasse 1", "4500", "Olten", "Deutschland"), new Date(
+				1987, 04, 04), "schaadli@bluewin.ch", "4534354354",
+				"543543543", "4334434", "www.google.com", "Philipp",
+				getHashAsString("abc"));
+		User testUser3 = new User(265656, "Testerli", "Ruedi", null, null,
+				null, null, null, null, null, "test@test.com",
+				getHashAsString("passw0rd"));
+		User testUser4 = new User(45345345, "Walther", "Dominque Cathrine",
+				new Address("Friburgstrasse", "2500", "Freiburg", "Schweiz"),
+				new Date(1988, 01, 01), "domi@bfh.ch", "434343432",
+				"343243343", "24343242", "www.bing.com", "Dominique",
+				getHashAsString("123"));
 
 		users.add(0, testUser);
 		users.add(1, testUser2);
@@ -85,6 +98,8 @@ public class UserDataHardcoded implements UserDataSource {
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+
+			return "";
 		}
 		passwordHashString = new String(passwordHashByte);
 		return passwordHashString;
