@@ -32,6 +32,7 @@ public class ClientDataHardcoded implements ClientDataSource {
 				true, fry, zoid));
 		clients.add(new Client(13455, "Heinzmann", "Steffie", new Address("Münstergasse 34", "9001", "Bern", "Schweiz"), new Date(1900, 01, 01), "sokm@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch", false, emer2, zoid));
 		clients.add(new Client(888, "Mosimann", "Sophie", new Address("Quellgasse", "2500", "Biel", "Schweiz"), new Date(1990, 01, 01), "so@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, emer1, fry));
+		clients.add(new Client(6, "Sasha", "Grey", new Address("Tubestreet", "6666", "Interwebs", "United States"), new Date(1988, 01, 01), "sg@gmx.ch", "002493938", "8437894839", "079585858", "www.bild.ch",true, emer1, zoid));
 	}
 	
 	public static ClientDataHardcoded getInstance () {
