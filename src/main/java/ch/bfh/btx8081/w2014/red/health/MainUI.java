@@ -10,8 +10,8 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
@@ -27,8 +27,10 @@ public class MainUI extends UI {
 	public static class Servlet extends VaadinServlet {
 	}
 	
-	private HorizontalLayout menuContent;
-	private ArrayList<Component> externalMenuContent;
+	private HorizontalLayout menuBarContent;
+	private ArrayList<Component> externalMenuBarContent;
+	private MenuWindow menu;
+	private boolean menu_is_visible;
     protected Navigator navigator;
     protected static final String LANDINGVIEW = "";
     protected static final String LOGINVIEW = "login";
@@ -47,20 +49,47 @@ public class MainUI extends UI {
         
         /*
          * THE MENU
-         */
-        Panel menuBar = new Panel();
-        menuBar.setHeight(null);
-        menuBar.setWidth("100%");
-        menuContent = new HorizontalLayout();
-        externalMenuContent = new ArrayList<Component>();
-        Button menuButton = new Button("Menu");
-        menuContent.addComponent(menuButton);
-        menuContent.setWidth(null);
-        menuContent.setMargin(false);
-        menuBar.setContent(menuContent);
+         */     
+        menuBarContent = new HorizontalLayout();
+        menuBarContent.setHeight(null);
+        menuBarContent.setWidth("100%");
+        menuBarContent.setSpacing(false);
         
-        mainGrid.addComponent(menuBar);
         
+        //menuContent.setHeight("20px");
+        externalMenuBarContent = new ArrayList<Component>();
+        Button menuButton = new Button("Menu", new Button.ClickListener() {
+
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public void buttonClick(ClickEvent event) {
+            	if(menu_is_visible) {
+            		hideMenu();
+            		menu_is_visible = false;
+            	} else {
+            		showMenu();
+            		menu_is_visible = true;
+            	}
+                //mainWindow.removeWindow(dialogWindow);
+            }
+
+        });
+        
+        menuButton.setHeight("26px");
+        menuButton.setWidth("100%");
+
+        menuBarContent.addComponent(menuButton);
+        menuBarContent.setExpandRatio(menuButton, 1.0f);
+        
+        mainGrid.addComponent(menuBarContent);
+        
+        menu = new MenuWindow();
+        menu.setClosable(false);
+        menu.setResizable(false);
+        menu.setDraggable(false);
+        menu.setPositionY(27);
+        menu.setWidth("160px");
         
         /*
          * THE CONTENT
@@ -117,23 +146,33 @@ public class MainUI extends UI {
 				
 			}
 		});
-        
     }
     
     protected void addMenuElement(Component c) {
-    	externalMenuContent.add(c);
-    	menuContent.addComponent(c);
+    	c.setHeight("26px");
+    	externalMenuBarContent.add(c);
+        c.setWidth("100%");
+
+        menuBarContent.addComponent(c);
+        menuBarContent.setExpandRatio(c, 1.0f);
     }
     
     protected void removeMenuElement(Component c) {
-    	menuContent.removeComponent(c);
+    	menuBarContent.removeComponent(c);
     }
     
     protected void removeExternalMenuElements() {
-    	for (Component component : externalMenuContent) {
-    		menuContent.removeComponent(component);
+    	for (Component component : externalMenuBarContent) {
+    		menuBarContent.removeComponent(component);
 		}
-    	externalMenuContent.clear();
+    	externalMenuBarContent.clear();
     }
 
+    private void showMenu() {
+        this.addWindow(menu);
+    }
+    
+    private void hideMenu() {
+    	this.removeWindow(menu);
+    }
 }
