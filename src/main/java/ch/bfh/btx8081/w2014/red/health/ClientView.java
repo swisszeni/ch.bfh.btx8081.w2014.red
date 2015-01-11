@@ -104,10 +104,13 @@ public class ClientView extends CustomComponent implements View {
 		field_birthdate = new DateField("birthdate");
 
 		field_showstatus = new NativeSelect();
-		field_showstatus.addItem("harmless");
-		field_showstatus.addItem("harmful");
+		field_showstatus.addItem(true);
+		field_showstatus.addItem(false);
+		field_showstatus.setItemCaption(false, "harmless");
+		field_showstatus.setItemCaption(true, "harmful");
 		field_showstatus.setCaption("status");
 		field_showstatus.setImmediate(false);
+		field_showstatus.setNullSelectionAllowed(false);
 
 		HorizontalLayout hbuttons = new HorizontalLayout();
 		hbuttons.addComponents(button_edit, button_save, button_cancel);
@@ -301,13 +304,13 @@ public class ClientView extends CustomComponent implements View {
 
 		field_birthdate.setPropertyDataSource(item.getItemProperty("birthday"));
 
-		// field_showstatus
-		// .setPropertyDataSource(item.getItemProperty("harmless"));
-		// if (String.valueOf(c.isHarmless()).equalsIgnoreCase("true")){
-		// field_showstatus.select("harmless");
-		// } else {
-		// field_showstatus.select("harmful");
-		// }
+		 field_showstatus
+		 .setPropertyDataSource(item.getItemProperty("harmless"));
+		 if (String.valueOf(c.isHarmless()).equalsIgnoreCase("true")){
+		 field_showstatus.select("harmless");
+		 } else {
+		 field_showstatus.select("harmful");
+		 }
 
 		// the binder object is responsible for the save/cancel handling
 		binder = new FieldGroup(item);
