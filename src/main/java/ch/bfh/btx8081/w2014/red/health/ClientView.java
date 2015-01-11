@@ -324,7 +324,7 @@ public class ClientView extends CustomComponent implements View {
 		binder.bind(field_firstname, "firstName");
 		binder.bind(field_lastname, "lastName");
 		binder.bind(field_birthdate, "birthday");
-		// binder.bind(field_showstatus, "harmless");
+		binder.bind(field_showstatus, "harmless");
 
 		binder.setBuffered(true);
 
