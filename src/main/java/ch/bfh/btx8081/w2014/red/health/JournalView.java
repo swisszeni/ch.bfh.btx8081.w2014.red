@@ -28,10 +28,10 @@ public class JournalView extends CustomComponent implements View{
 	
 
 	private final Label label_clientInfo;
-	private final Button button_newEntry;
-	//private final Table table;
+	private final Button button_newEntry, button_return;
+	private Table table;
 	private Client client;
-	private int clientNr;
+	private int currentClientNr;
 	
 	
 	public JournalView(){
@@ -44,42 +44,92 @@ public class JournalView extends CustomComponent implements View{
 		button_newEntry = new Button("New entry");
 		button_newEntry.setImmediate(true);
 		
-		/*//label
-		 BeanContainer<Integer, JournalEntry> journalEntries = new BeanContainer<Integer, JournalEntry>(JournalEntry.class);
-		 journalEntries.setBeanIdProperty("personId");
+		// return button
+		button_return = new Button("Return");
+		button_return.setImmediate(true);
+		
+		// table
+		table = new Table();
 
-		 journalEntries.addAll(JournalDataHardcoded.getInstance().getJournalEntries(clientNr));
-
-	        
-	        table = new Table(null, journalEntries);
-	        table.setSizeFull();
-	        table.setVisibleColumns(new Object[]{"personId","author", "dateOfEntry", "JournalEntry"});
-	        table.setColumnHeader("author", "Author");
-	        table.setColumnHeader("dateOfEntry", "Date");
-	        table.setColumnHeader("JournalEntry", "Text");
-	        
-	        table.setPageLength(table.size());
-	        
-	        table.setSelectable(false);
-	        table.setImmediate(true); 
-		*/
 	     //layouts
-		HorizontalLayout fields = new HorizontalLayout(label_clientInfo, button_newEntry);
+		HorizontalLayout fields = new HorizontalLayout(label_clientInfo);
 		fields.setSpacing(true);
 		fields.setMargin(true);
 		fields.setSizeUndefined();
 		
-		VerticalLayout viewLayout = new VerticalLayout(fields);
+		VerticalLayout viewLayout = new VerticalLayout(fields, table);
 		viewLayout.setSizeFull();
 		viewLayout.setComponentAlignment(fields, Alignment.TOP_CENTER);
 		setCompositionRoot(viewLayout);
+		
+		
+		
+		button_return.addClickListener(new Button.ClickListener() {
+			// returns to the Clients List
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				((MainUI) UI.getCurrent()).navigator
+						.navigateTo(MainUI.CLIENTVIEW + "/" + currentClientNr);
+			}
+		});
+		
+		button_newEntry.addClickListener(new Button.ClickListener() {
+			// returns to the Clients List
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				((MainUI) UI.getCurrent()).navigator
+						.navigateTo(MainUI.NEWJOURNALENTRYVIEW + "/" + currentClientNr);
+			}
+		});
 	}
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		clientNr = Integer.parseInt(event.getParameters());
-		client = ClientController.getClientForID(clientNr);
-		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName()+", "+client.getBirthday());
+		currentClientNr = Integer.parseInt(event.getParameters());
+		loadClientData(currentClientNr);
+		loadJournalEntries(currentClientNr);
+		
+		
+		//add new entry button
+		((MainUI) UI.getCurrent()).addMenuElement(button_newEntry);
+		
+		// add return button
+		((MainUI) UI.getCurrent()).addMenuElement(button_return);	
+
+	}
+	
+	private void loadClientData(int currentClient){
+		currentClientNr = currentClient;
+		client = ClientController.getClientForID(currentClientNr);
+		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName());
+	}
+	
+	private void loadJournalEntries(int currentClient){
+		/*
+		 System.out.println("loadJournalEntries: "+currentClientNr);
+		
+		 BeanContainer<Integer, JournalEntry> journalEntries = new BeanContainer<Integer, JournalEntry>(JournalEntry.class);
+		 journalEntries.setBeanIdProperty("clientId");
+
+		 journalEntries.addAll(JournalDataHardcoded.getInstance().getJournalEntries(currentClientNr));
+
+		 System.out.println("Anzahl Journal Entries: "+journalEntries.size());
+	        
+	      table = new Table(null, journalEntries);
+	      table.setSizeFull();
+	      table.setVisibleColumns(new Object[]{"clientId", "author", "dateOfEntry", "JournalEntry"});
+	      table.setColumnHeader("clientId", "ClientId");
+	      table.setColumnHeader("author", "Author");
+	      table.setColumnHeader("dateOfEntry", "Date");
+	      table.setColumnHeader("JournalEntry", "Text");
+	        
+	      table.setPageLength(table.size());
+	        
+	      table.setSelectable(false);
+	      table.setImmediate(true); 
+		*/
 	}
 	
 
