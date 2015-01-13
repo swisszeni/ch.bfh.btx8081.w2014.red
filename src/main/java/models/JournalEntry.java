@@ -16,7 +16,6 @@ public class JournalEntry {
 		this.journalEntry = journalEntry;
 	}
 	
-	
 	public User getAuthor() {
 		return author;
 	}

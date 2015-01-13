@@ -61,7 +61,7 @@ public class JournalDataHardcoded implements JournalDataSource{
 
 	@Override
 	public void createJournalEntry(JournalEntry newJournalEntry) {
-		// TODO Auto-generated method stub
+		journalEntries.add(newJournalEntry);
 		
 	}
 

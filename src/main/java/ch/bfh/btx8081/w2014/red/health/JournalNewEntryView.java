@@ -1,6 +1,8 @@
 package ch.bfh.btx8081.w2014.red.health;
 
+import intelligentstuff.JournalDataHardcoded;
 import models.Client;
+import models.JournalEntry;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -81,6 +83,25 @@ public class JournalNewEntryView extends CustomComponent implements View {
 
 				((MainUI) UI.getCurrent()).navigator
 						.navigateTo(MainUI.JOURNALVIEW + "/" + currentClientNr);
+			}
+		});
+		
+		//event listener return button
+		button_save.addClickListener(new Button.ClickListener() {
+			// returns to the Clients List
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				
+				if(!textArea.getValue().equals("")){
+					JournalEntry newEntry = new JournalEntry(null, null, currentClientNr, textArea.getValue() );
+					JournalDataHardcoded.getInstance().createJournalEntry(newEntry);
+					
+					((MainUI) UI.getCurrent()).navigator
+					.navigateTo(MainUI.JOURNALVIEW + "/" + currentClientNr);
+					
+				}
+				
 			}
 		});
 
