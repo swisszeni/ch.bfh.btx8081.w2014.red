@@ -1,13 +1,9 @@
 package ch.bfh.btx8081.w2014.red.health;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import models.Client;
 import models.JournalEntry;
 
 import com.vaadin.data.util.BeanContainer;
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Alignment;
@@ -16,13 +12,11 @@ import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
-import com.vaadin.ui.TextArea;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
 import controller.ClientController;
-import intelligentstuff.ClientDataHardcoded;
 import intelligentstuff.JournalDataHardcoded;
 
 @SuppressWarnings("serial")
