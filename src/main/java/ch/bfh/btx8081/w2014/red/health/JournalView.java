@@ -1,11 +1,13 @@
 package ch.bfh.btx8081.w2014.red.health;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import models.Client;
 import models.JournalEntry;
 
 import com.vaadin.data.util.BeanContainer;
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Alignment;
@@ -32,6 +34,7 @@ public class JournalView extends CustomComponent implements View{
 	private Table table;
 	private Client client;
 	private int currentClientNr;
+	private BeanContainer<String, JournalEntry> journalEntries;
 	
 	
 	public JournalView(){
@@ -50,6 +53,17 @@ public class JournalView extends CustomComponent implements View{
 		
 		// table
 		table = new Table();
+		 journalEntries = new BeanContainer<String, JournalEntry>(JournalEntry.class);
+		 journalEntries.setBeanIdProperty("journalEntry");
+	        
+	      table = new Table(null, journalEntries);
+	      table.setVisibleColumns(new Object[]{"author", "dateOfEntry", "journalEntry"});
+	      table.setColumnHeader("author", "Author");
+	      table.setColumnHeader("dateOfEntry", "Date");
+	      table.setColumnHeader("journalEntry", "Text");
+	        
+	      table.setSelectable(false);
+	      table.setImmediate(true); 
 
 	     //layouts
 		HorizontalLayout fields = new HorizontalLayout(label_clientInfo);
@@ -57,9 +71,12 @@ public class JournalView extends CustomComponent implements View{
 		fields.setMargin(true);
 		fields.setSizeUndefined();
 		
-		VerticalLayout viewLayout = new VerticalLayout(fields, table);
+		VerticalLayout verticalLayout = new VerticalLayout(fields, table);
+		verticalLayout.setSizeUndefined();
+		
+		VerticalLayout viewLayout = new VerticalLayout(verticalLayout);
 		viewLayout.setSizeFull();
-		viewLayout.setComponentAlignment(fields, Alignment.TOP_CENTER);
+		viewLayout.setComponentAlignment(verticalLayout, Alignment.TOP_CENTER);
 		setCompositionRoot(viewLayout);
 		
 		
@@ -107,29 +124,8 @@ public class JournalView extends CustomComponent implements View{
 	}
 	
 	private void loadJournalEntries(int currentClient){
-		/*
-		 System.out.println("loadJournalEntries: "+currentClientNr);
-		
-		 BeanContainer<Integer, JournalEntry> journalEntries = new BeanContainer<Integer, JournalEntry>(JournalEntry.class);
-		 journalEntries.setBeanIdProperty("clientId");
 
 		 journalEntries.addAll(JournalDataHardcoded.getInstance().getJournalEntries(currentClientNr));
-
-		 System.out.println("Anzahl Journal Entries: "+journalEntries.size());
-	        
-	      table = new Table(null, journalEntries);
-	      table.setSizeFull();
-	      table.setVisibleColumns(new Object[]{"clientId", "author", "dateOfEntry", "JournalEntry"});
-	      table.setColumnHeader("clientId", "ClientId");
-	      table.setColumnHeader("author", "Author");
-	      table.setColumnHeader("dateOfEntry", "Date");
-	      table.setColumnHeader("JournalEntry", "Text");
-	        
-	      table.setPageLength(table.size());
-	        
-	      table.setSelectable(false);
-	      table.setImmediate(true); 
-		*/
 	}
 	
 
