@@ -4,6 +4,7 @@ import models.Client;
 import models.JournalEntry;
 
 import com.vaadin.data.util.BeanContainer;
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Alignment;
@@ -28,7 +29,7 @@ public class JournalView extends CustomComponent implements View{
 	private Table table;
 	private Client client;
 	private int currentClientNr;
-	private BeanContainer<String, JournalEntry> journalEntries;
+	private BeanItemContainer<JournalEntry> journalEntries;
 	
 	
 	public JournalView(){
@@ -47,8 +48,8 @@ public class JournalView extends CustomComponent implements View{
 		
 		// table
 		table = new Table();
-		 journalEntries = new BeanContainer<String, JournalEntry>(JournalEntry.class);
-		 journalEntries.setBeanIdProperty("journalEntry");
+		 journalEntries = new BeanItemContainer<JournalEntry>(JournalEntry.class);
+		
 	        
 	      table = new Table(null, journalEntries);
 	      table.setVisibleColumns(new Object[]{"author", "dateOfEntry", "journalEntry"});
