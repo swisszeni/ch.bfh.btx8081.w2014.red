@@ -3,7 +3,6 @@ package ch.bfh.btx8081.w2014.red.health;
 import models.Client;
 import models.JournalEntry;
 
-import com.vaadin.data.util.BeanContainer;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -20,13 +19,19 @@ import com.vaadin.ui.Button.ClickEvent;
 import controller.ClientController;
 import intelligentstuff.JournalDataHardcoded;
 
+/**
+ * View of the journal of one specific client.
+ * 
+ * @author David
+ *
+ */
 @SuppressWarnings("serial")
 public class JournalView extends CustomComponent implements View{
 	
 
 	private final Label label_clientInfo;
 	private final Button button_newEntry, button_return;
-	private Table table;
+	private Table table_entries;
 	private Client client;
 	private int currentClientNr;
 	private BeanItemContainer<JournalEntry> journalEntries;
@@ -47,26 +52,25 @@ public class JournalView extends CustomComponent implements View{
 		button_return.setImmediate(true);
 		
 		// table
-		table = new Table();
-		 journalEntries = new BeanItemContainer<JournalEntry>(JournalEntry.class);
-		
+		table_entries = new Table();
+		journalEntries = new BeanItemContainer<JournalEntry>(JournalEntry.class);
+		  
+	    table_entries = new Table(null, journalEntries);
+	    table_entries.setVisibleColumns(new Object[]{"author", "dateOfEntry", "journalEntry"});
+	    table_entries.setColumnHeader("author", "Author");
+	    table_entries.setColumnHeader("dateOfEntry", "Date");
+	    table_entries.setColumnHeader("journalEntry", "Text");
 	        
-	      table = new Table(null, journalEntries);
-	      table.setVisibleColumns(new Object[]{"author", "dateOfEntry", "journalEntry"});
-	      table.setColumnHeader("author", "Author");
-	      table.setColumnHeader("dateOfEntry", "Date");
-	      table.setColumnHeader("journalEntry", "Text");
-	        
-	      table.setSelectable(false);
-	      table.setImmediate(true); 
+	    table_entries.setSelectable(false);
+	    table_entries.setImmediate(true); 
 
-	     //layouts
+	    //layouts
 		HorizontalLayout fields = new HorizontalLayout(label_clientInfo);
 		fields.setSpacing(true);
 		fields.setMargin(true);
 		fields.setSizeUndefined();
 		
-		VerticalLayout verticalLayout = new VerticalLayout(fields, table);
+		VerticalLayout verticalLayout = new VerticalLayout(fields, table_entries);
 		verticalLayout.setSizeUndefined();
 		
 		VerticalLayout viewLayout = new VerticalLayout(verticalLayout);
@@ -77,7 +81,7 @@ public class JournalView extends CustomComponent implements View{
 		
 		
 		button_return.addClickListener(new Button.ClickListener() {
-			// returns to the Clients List
+			// returns to the Client
 			@Override
 			public void buttonClick(ClickEvent event) {
 
@@ -87,7 +91,7 @@ public class JournalView extends CustomComponent implements View{
 		});
 		
 		button_newEntry.addClickListener(new Button.ClickListener() {
-			// returns to the Clients List
+			// go to JournalNewEntryView
 			@Override
 			public void buttonClick(ClickEvent event) {
 
@@ -112,12 +116,24 @@ public class JournalView extends CustomComponent implements View{
 
 	}
 	
+	/**
+	 * Gets the data of the current client by the given ID. Puts first name, name and birthday in given label.
+	 * 
+	 * 
+	 * @param currentClient : int - ID of the current client
+	 */
 	private void loadClientData(int currentClient){
 		currentClientNr = currentClient;
 		client = ClientController.getClientForID(currentClientNr);
-		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName());
+		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName()+", "+client.getBirthday().toString());
 	}
 	
+	
+	/**
+	 * Gets the journal entries for the current client by the given ID. Puts all found entries in the defined BeanItemContainer.
+	 * 
+	 * @param currentClient : int - ID of current client
+	 */
 	private void loadJournalEntries(int currentClient){
 
 		 journalEntries.addAll(JournalDataHardcoded.getInstance().getJournalEntries(currentClientNr));

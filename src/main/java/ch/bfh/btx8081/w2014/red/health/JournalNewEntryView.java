@@ -1,8 +1,14 @@
 package ch.bfh.btx8081.w2014.red.health;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import intelligentstuff.JournalDataHardcoded;
 import models.Client;
 import models.JournalEntry;
+import models.User;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -18,6 +24,12 @@ import com.vaadin.ui.Button.ClickEvent;
 
 import controller.ClientController;
 
+/**
+ * View for creating new journal entries.
+ * 
+ * @author David
+ *
+ */
 @SuppressWarnings("serial")
 public class JournalNewEntryView extends CustomComponent implements View {
 
@@ -39,11 +51,11 @@ public class JournalNewEntryView extends CustomComponent implements View {
 		button_return = new Button("Return");
 		button_return.setImmediate(true);
 		
-		// return button
+		// save button
 		button_save = new Button("Save");
 		button_save.setImmediate(true);
 		
-		// return button
+		// cancel button
 		button_cancel = new Button("Cancel");
 		button_cancel.setImmediate(true);
 		
@@ -66,7 +78,7 @@ public class JournalNewEntryView extends CustomComponent implements View {
 		
 		//event listener return button
 		button_return.addClickListener(new Button.ClickListener() {
-			// returns to the Clients List
+			// returns to the journal view
 			@Override
 			public void buttonClick(ClickEvent event) {
 
@@ -75,9 +87,9 @@ public class JournalNewEntryView extends CustomComponent implements View {
 			}
 		});
 		
-		//event listener return button
+		//event listener cancel button
 		button_cancel.addClickListener(new Button.ClickListener() {
-			// returns to the Clients List
+			// returns to the journal view
 			@Override
 			public void buttonClick(ClickEvent event) {
 
@@ -86,17 +98,28 @@ public class JournalNewEntryView extends CustomComponent implements View {
 			}
 		});
 		
-		//event listener return button
+		//event listener save button
 		button_save.addClickListener(new Button.ClickListener() {
-			// returns to the Clients List
+			
 			@Override
 			public void buttonClick(ClickEvent event) {
 
-				
+				//just do something if textarea is not empty
 				if(!textArea.getValue().equals("")){
-					JournalEntry newEntry = new JournalEntry(null, null, currentClientNr, textArea.getValue() );
+					
+					//get date and time and save it in specific format
+					DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+					Date now = Calendar.getInstance().getTime();        
+					String dateOfEntry = df.format(now);
+					
+					//get logged in user
+					User loggedInUser = (User) getSession().getAttribute("user");
+					
+					//create the new journal entry
+					JournalEntry newEntry = new JournalEntry(loggedInUser.getLastName()+" "+loggedInUser.getFirstName(), dateOfEntry, currentClientNr, textArea.getValue() );
 					JournalDataHardcoded.getInstance().createJournalEntry(newEntry);
 					
+					//go back to journal view
 					((MainUI) UI.getCurrent()).navigator
 					.navigateTo(MainUI.JOURNALVIEW + "/" + currentClientNr);
 					
@@ -110,17 +133,28 @@ public class JournalNewEntryView extends CustomComponent implements View {
 	@Override
 	public void enter(ViewChangeEvent event) {
 		
+		//get current client from URI
 		currentClientNr = Integer.parseInt(event.getParameters());
 		loadClientData(currentClientNr);		
-		// add return button
+		
+		// add return button to menu
 		((MainUI) UI.getCurrent()).addMenuElement(button_return);	
 		
 	}
 	
+
+	/**
+	 * Gets the data of the current client by the given ID. Puts first name, name and birthday in given label.
+	 * 
+	 * 
+	 * @param currentClient : int - ID of the current client
+	 */
 	private void loadClientData(int currentClient){
+		
+		//get current client to show in label
 		currentClientNr = currentClient;
 		Client client = ClientController.getClientForID(currentClientNr);
-		label_clientInfo.setValue("New journal entry for "+client.getFirstName()+" "+client.getLastName()+":");
+		label_clientInfo.setValue("New journal entry for "+client.getFirstName()+" "+client.getLastName()+", "+client.getBirthday().toString());
 	}
 
 }

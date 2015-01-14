@@ -19,13 +19,13 @@ public class JournalDataHardcoded implements JournalDataSource{
 	private JournalDataHardcoded() {
 		journalEntries = new ArrayList<JournalEntry>();
 
-		JournalEntry testEntry = new JournalEntry(null, null, 888, "Besuch zu Hause verlief ohne Zwischenfälle.");
-		JournalEntry testEntry2 = new JournalEntry(null,null, 888, "Client hat gestern Abend und heute Morgen die Medikamente nicht eingenommen. Angeblich hat er es 'vergessen'.");		
-		JournalEntry testEntry3 = new JournalEntry(null, null, 1, "Keine Probleme. Hat Medikamente genommen.");
-		JournalEntry testEntry4 = new JournalEntry(null, null, 6, "War etwas verwirrt.");
-		JournalEntry testEntry5 = new JournalEntry(null, null, 6, "Familie war auch da beim Besuch. Die scheint ihm sehr gut zu tun.");
-		JournalEntry testEntry6 = new JournalEntry(null, null, 6, "Alles ok.");
-		JournalEntry testEntry7 = new JournalEntry(null, null, 13455, "Klienten neigt dazu, die ganze Zeit zu singen. Sie hält sich wohl für eine Sängerin oder so.");
+		JournalEntry testEntry = new JournalEntry("Testerli Ruedi", "14/12/2015 11:45", 888, "Besuch zu Hause verlief ohne Zwischenfälle.");
+		JournalEntry testEntry2 = new JournalEntry("Müller Fredi","05/01/2015 10:17", 888, "Client hat gestern Abend und heute Morgen die Medikamente nicht eingenommen. Angeblich hat er es 'vergessen'.");		
+		JournalEntry testEntry3 = new JournalEntry("Testerli Ruedi", "14/01/2015 20:00", 1, "Keine Probleme. Hat Medikamente genommen.");
+		JournalEntry testEntry4 = new JournalEntry("Meier Susi", "06/01/2015 14:37", 6, "War etwas verwirrt.");
+		JournalEntry testEntry5 = new JournalEntry("Müller Fredi", "07/01/2015 13:16", 6, "Familie war auch da beim Besuch. Die scheint ihm sehr gut zu tun.");
+		JournalEntry testEntry6 = new JournalEntry("Müller Fredi", "14/01/2015 18:04", 6, "Alles ok.");
+		JournalEntry testEntry7 = new JournalEntry("Meier Susi", "22/12/2014 09:53", 13455, "Klienten neigt dazu, die ganze Zeit zu singen. Sie hält sich wohl für eine Sängerin oder so.");
 		
 		
 		

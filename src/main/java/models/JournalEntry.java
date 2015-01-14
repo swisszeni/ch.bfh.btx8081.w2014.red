@@ -1,31 +1,30 @@
 package models;
 
-import java.util.GregorianCalendar;
 
 public class JournalEntry {
 	
-	private User author;
-	private GregorianCalendar dateOfEntry;
+	private String author;
+	private String dateOfEntry;
 	private String journalEntry;
 	private int clientId;
 	
-	public JournalEntry (User author, GregorianCalendar dateOfEntry, int clientId, String journalEntry){
+	public JournalEntry (String author, String dateOfEntry, int clientId, String journalEntry){
 		this.author = author;
 		this.dateOfEntry = dateOfEntry;
 		this.clientId = clientId;
 		this.journalEntry = journalEntry;
 	}
 	
-	public User getAuthor() {
+	public String getAuthor() {
 		return author;
 	}
-	public void setAuthor(User author) {
+	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public GregorianCalendar getDateOfEntry() {
+	public String getDateOfEntry() {
 		return dateOfEntry;
 	}
-	public void setDateOfEntry(GregorianCalendar dateOfEntry) {
+	public void setDateOfEntry(String dateOfEntry) {
 		this.dateOfEntry = dateOfEntry;
 	}
 	public String getJournalEntry() {
