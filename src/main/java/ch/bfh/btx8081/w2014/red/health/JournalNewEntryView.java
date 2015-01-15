@@ -116,7 +116,8 @@ public class JournalNewEntryView extends CustomComponent implements View {
 					User loggedInUser = (User) getSession().getAttribute("user");
 					
 					//create the new journal entry
-					JournalEntry newEntry = new JournalEntry(loggedInUser.getLastName()+" "+loggedInUser.getFirstName(), dateOfEntry, currentClientNr, textArea.getValue() );
+					JournalEntry newEntry = new JournalEntry(loggedInUser.getLastName()+" "+loggedInUser.getFirstName(),
+							dateOfEntry, currentClientNr, textArea.getValue() );
 					JournalDataHardcoded.getInstance().createJournalEntry(newEntry);
 					
 					//go back to journal view
