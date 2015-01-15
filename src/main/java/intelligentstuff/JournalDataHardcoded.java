@@ -28,7 +28,7 @@ public class JournalDataHardcoded implements JournalDataSource{
 		JournalEntry testEntry4 = new JournalEntry("Meier Susi", "06/01/2015 14:37", 6, "War etwas verwirrt.");
 		JournalEntry testEntry5 = new JournalEntry("Müller Fredi", "07/01/2015 13:16", 6, "Familie war auch da beim Besuch. Die scheint ihm sehr gut zu tun.");
 		JournalEntry testEntry6 = new JournalEntry("Müller Fredi", "14/01/2015 18:04", 6, "Alles ok.");
-		JournalEntry testEntry7 = new JournalEntry("Meier Susi", "22/12/2014 09:53", 13455, "Klienten neigt dazu, die ganze Zeit zu singen. Sie hält sich wohl für eine Sängerin oder so.");
+		JournalEntry testEntry7 = new JournalEntry("Meier Susi", "22/12/2014 09:53", 13455, "Klientin neigt dazu, die ganze Zeit zu singen. Sie hält sich wohl für eine Sängerin oder so.");
 		
 		
 		
