@@ -26,7 +26,7 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @Theme("mytheme")
 @SuppressWarnings("serial")
-public class LandingView extends CustomComponent implements View {
+public class LandingView extends CustomComponent implements View, IMenuListable {
 
 	private Label hello;
 	

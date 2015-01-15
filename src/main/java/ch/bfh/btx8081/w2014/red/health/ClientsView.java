@@ -14,7 +14,7 @@ import com.vaadin.ui.VerticalLayout;
 
 /** Main view with a menu */
 @SuppressWarnings("serial")
-public class ClientsView extends VerticalLayout implements View {
+public class ClientsView extends VerticalLayout implements View, IMenuListable {
 	
 	private final Table table;
 

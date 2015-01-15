@@ -27,7 +27,7 @@ import controller.ClientController;
 
 @Theme("mytheme")
 @SuppressWarnings("serial")
-public class ClientView extends CustomComponent implements View {
+public class ClientView extends CustomComponent implements View, IMenuListable {
 
 	private FieldGroup binder;
 	private int currentClientNr;

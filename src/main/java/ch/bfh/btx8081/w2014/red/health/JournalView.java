@@ -26,7 +26,7 @@ import intelligentstuff.JournalDataHardcoded;
  *
  */
 @SuppressWarnings("serial")
-public class JournalView extends CustomComponent implements View{
+public class JournalView extends CustomComponent implements View, IMenuListable {
 	
 
 	private final Label label_clientInfo;
