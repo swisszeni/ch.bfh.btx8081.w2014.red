@@ -8,6 +8,12 @@ import java.security.NoSuchAlgorithmException;
 
 import models.User;
 
+/**
+ * Handles the transfer of users within the project. Creates the only instance of the UserDataHardcoded class
+ * 
+ * @author florian, philipp
+ *
+ */
 public class UserController {
 
 	private static UserDataSource dataSource;
@@ -16,6 +22,13 @@ public class UserController {
 		dataSource = UserDataHardcoded.getInstance();
 	}
 
+	/**
+	 * Returns an user related to the given username and password.
+	 * 
+	 * @param username : String 
+	 * @param password : String
+	 * @return User
+	 */
 	public static User getUserForUsernameAndPassword(String username,
 			String password) {
 
@@ -27,6 +40,13 @@ public class UserController {
 
 	}
 
+	/**
+	 * This method hashes the given password.
+	 * 
+	 * @param password : String - the user password
+	 * @return a String with the hashed password value or an empty string if the
+	 *         method needs to catch a NoSuchAlgorithmEception
+	 */
 	public static String getHashAsString(String password) {
 		byte[] passwordHashByte = null;
 		MessageDigest md;
@@ -40,21 +60,8 @@ public class UserController {
 			e.printStackTrace();
 			return "";
 		}
-		 passwordHashString = new String(passwordHashByte);
-		 return passwordHashString;
+		passwordHashString = new String(passwordHashByte);
+		return passwordHashString;
 	}
 
-	// public static void createNewUser(int personId, String lastName, String
-	// firstName,
-	// Address address, Date birthday, String email, String businessNr,
-	// String privateNr, String mobileNr, String pictureUri,
-	// String username, String password){
-	//
-	// User newUser = new User(personId, lastName, firstName, address, birthday,
-	// email,
-	// businessNr, privateNr, mobileNr, pictureUri, username, password);
-	//
-	//
-	//
-	// }
 }
