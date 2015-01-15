@@ -67,12 +67,9 @@ public class MainUI extends UI {
             public void buttonClick(ClickEvent event) {
             	if(menu_is_visible) {
             		hideMenu();
-            		menu_is_visible = false;
             	} else {
             		showMenu();
-            		menu_is_visible = true;
             	}
-                //mainWindow.removeWindow(dialogWindow);
             }
 
         });
@@ -122,6 +119,9 @@ public class MainUI extends UI {
 			
 			@Override
 			public boolean beforeViewChange(ViewChangeEvent event) {
+				if(menu_is_visible) {
+					hideMenu();
+				}
 				// Remove all the external menu elements from the old view
 				removeExternalMenuElements();
 				
@@ -171,10 +171,13 @@ public class MainUI extends UI {
     }
 
     private void showMenu() {
+    	menu.prepareToDisplay();
         this.addWindow(menu);
+        menu_is_visible = true;
     }
     
     private void hideMenu() {
     	this.removeWindow(menu);
+    	menu_is_visible = false;
     }
 }
