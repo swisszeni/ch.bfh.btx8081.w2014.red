@@ -3,6 +3,11 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class not in use right now
+ * @author david
+ *
+ */
 public class Journal {
 
 	private List<JournalEntry> journalEntries;

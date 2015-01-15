@@ -2,8 +2,13 @@ package models;
 
 import java.util.Date;
 
-/* Defines a Client that extends all attributes of the Person class. Additional, there are the attributes harmless, an emergency contact of the client and the clients doctor*/
-
+/**
+ * extends the Person class with the client attributes harmless, emergency
+ * contact, doctor and journal
+ * 
+ * @author florian, aline, dominique, philipp
+ *
+ */
 public class Client extends Person {
 
 	/* this attribute shows if the patient is dangerous or not */
@@ -12,12 +17,12 @@ public class Client extends Person {
 	private Doctor doc;
 	private Journal journal;
 
-	public Client(int personId, String lastName, String firstName, Address address,
-			Date birthday, String email, String businessNr,
+	public Client(int personId, String lastName, String firstName,
+			Address address, Date birthday, String email, String businessNr,
 			String privateNr, String mobileNr, String pictureUri,
 			boolean harmless, Person emergencyContact, Doctor doc) {
-		super(personId, lastName, firstName, address, birthday, email, businessNr,
-				privateNr, mobileNr, pictureUri);
+		super(personId, lastName, firstName, address, birthday, email,
+				businessNr, privateNr, mobileNr, pictureUri);
 
 		this.harmless = harmless;
 		this.emergencyContact = emergencyContact;
@@ -53,6 +58,5 @@ public class Client extends Person {
 	public Journal getJournal() {
 		return journal;
 	}
-
 
 }

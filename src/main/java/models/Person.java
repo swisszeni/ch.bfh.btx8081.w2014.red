@@ -2,8 +2,13 @@ package models;
 
 import java.util.Date;
 
-/* Defines a Person with the attributes lastname, firstname, address, birthday, email, business/private and mobile telephone number and an URI to a picture*/
-
+/**
+ * Defines a Person with the attributes lastname, firstname, address, birthday,
+ * email, business/private and mobile telephone number and an URI to a picture
+ * 
+ * @author florian, aline, dominique, philipp
+ *
+ */
 public class Person {
 
 	private int personId;
@@ -17,8 +22,8 @@ public class Person {
 	private String mobileNr;
 	private String pictureUri;
 
-	public Person(int personId, String lastName, String firstName, Address address,
-			Date birthday, String email, String businessNr,
+	public Person(int personId, String lastName, String firstName,
+			Address address, Date birthday, String email, String businessNr,
 			String privateNr, String mobileNr, String pictureUri)
 
 	{
@@ -116,11 +121,4 @@ public class Person {
 		this.personId = personId;
 	}
 
-	
-
-	/*
-	 * public void deletePerson (Person person) {
-	 * 
-	 * }
-	 */
 }

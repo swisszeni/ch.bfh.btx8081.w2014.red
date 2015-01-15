@@ -1,7 +1,11 @@
 package models;
 
-/* Defines street, zipcode, city, country of a specified Address */
-
+/**
+ * Address class with the variables street, zip, city and country
+ * 
+ * @author florian, aline, dominique, philipp
+ *
+ */
 public class Address {
 
 	private String street;
@@ -50,10 +54,11 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	public String toString(){
-		return this.street + ", " + this.zip + " " + this.city + ", " + this.country;
-		
+
+	public String toString() {
+		return this.street + ", " + this.zip + " " + this.city + ", "
+				+ this.country;
+
 	}
 
 }

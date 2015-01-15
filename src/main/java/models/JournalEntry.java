@@ -1,6 +1,12 @@
 package models;
 
 
+/**
+ * @author david
+ *
+ *Defines all needed attributes for a journal entry. The entry must have an author, an entry date and a client id.
+ *
+ */
 public class JournalEntry {
 	
 	private String author;

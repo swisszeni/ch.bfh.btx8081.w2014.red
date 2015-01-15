@@ -2,6 +2,12 @@ package models;
 
 import java.util.Date;
 
+/**
+ * extends the Person class with the user attributes username and password
+ * 
+ * @author florian, aline, dominique, philipp
+ *
+ */
 public class User extends Person {
 
 	private String username;

@@ -2,8 +2,14 @@ package models;
 
 import java.util.Date;
 
-/* Defines a Doctor that extends all attributes of the Person class. Additional, there are the attributes zsrNr, the doctors specialication and the doctors working address*/
 
+/**
+ * extends the Person class with the doctor attributes zsrNr, specialication and working address
+ * 
+ * @author florian, aline, dominique, philipp
+ *
+ *
+ */
 public class Doctor extends Person {
 
 	private String zsrNr;
