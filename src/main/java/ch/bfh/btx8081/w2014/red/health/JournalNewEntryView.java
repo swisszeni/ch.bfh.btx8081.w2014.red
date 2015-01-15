@@ -154,7 +154,7 @@ public class JournalNewEntryView extends CustomComponent implements View {
 		//get current client to show in label
 		currentClientNr = currentClient;
 		Client client = ClientController.getClientForID(currentClientNr);
-		label_clientInfo.setValue("New journal entry for "+client.getFirstName()+" "+client.getLastName()+", "+client.getBirthday().toString());
+		label_clientInfo.setValue("New journal entry for "+client.getFirstName()+" "+client.getLastName());
 	}
 
 }

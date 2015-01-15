@@ -125,7 +125,7 @@ public class JournalView extends CustomComponent implements View, IMenuListable 
 	private void loadClientData(int currentClient){
 		currentClientNr = currentClient;
 		client = ClientController.getClientForID(currentClientNr);
-		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName()+", "+client.getBirthday().toString());
+		label_clientInfo.setValue(client.getFirstName()+" "+client.getLastName());
 	}
 	
 	
