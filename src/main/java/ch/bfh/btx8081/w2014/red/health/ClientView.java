@@ -276,7 +276,11 @@ public class ClientView extends CustomComponent implements View, IMenuListable {
 				+ "/" + currentClientNr);
 	}
 
-	// Set for all client information fields the ReadOnly state
+	/**
+	 * Sets or releases all fields to read only, so that they can or cannot be manipulated. 
+	 * 
+	 * @param readOnly : boolean - decides if the fields must be set read only or released form read only
+	 */
 	private void setClientDataToReadOnly(boolean readOnly) {
 		field_lastname.setReadOnly(readOnly);
 		field_firstname.setReadOnly(readOnly);
@@ -284,7 +288,11 @@ public class ClientView extends CustomComponent implements View, IMenuListable {
 		field_showstatus.setReadOnly(readOnly);
 	}
 
-	// loads the client data to the related variables
+	/**
+	 * loads the client data to the related variables
+	 * 
+	 * @param c : Client that needs to be loaded
+	 */
 	private void loadClientData(Client c) {
 
 		field_showstatus.setValue(c.isHarmless() ? "harmless" : "harmful");
@@ -297,8 +305,11 @@ public class ClientView extends CustomComponent implements View, IMenuListable {
 
 	}
 
-	// binds the client datas to the related field.
-
+	/**
+	 * binds the client data to the related field.
+	 * 
+	 * @param c : Client that needs to be binded
+	 */
 	private void addItemPropertyToField(Client c) {
 
 		BeanItem<Client> item = new BeanItem<Client>(c);

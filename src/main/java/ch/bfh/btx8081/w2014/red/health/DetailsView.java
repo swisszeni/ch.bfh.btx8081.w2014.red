@@ -232,7 +232,11 @@ public class DetailsView extends CustomComponent implements View {
 		((MainUI) UI.getCurrent()).addMenuElement(button_return);
 	}
 
-	// Set for all client information fields the ReadOnly state
+	/**
+	 * Sets or releases all fields to read only, so that they can or cannot be manipulated. 
+	 * 
+	 * @param readOnly : boolean - decides if the fields must be set read only or released form read only
+	 */
 	private void setClientDataToReadOnly(boolean readOnly) {
 		field_street.setReadOnly(readOnly);
 		field_zip.setReadOnly(readOnly);
@@ -246,7 +250,11 @@ public class DetailsView extends CustomComponent implements View {
 
 	}
 
-	// loads the client data to the related variables
+	/**
+	 * loads the client data to the related variables
+	 * 
+	 * @param c : Client that needs to be loaded
+	 */
 	private void loadClientData(Client c) {
 
 		field_emergency.setValue(c.getEmergencyContact().getFirstName() + " "
@@ -257,8 +265,11 @@ public class DetailsView extends CustomComponent implements View {
 
 	}
 
-	// binds the client datas to the related field
-
+	/**
+	 * binds the client data to the related field.
+	 * 
+	 * @param c : Client that needs to be binded
+	 */
 	private void addItemPropertyToField(Client c) {
 
 		// To prevent a null point exception, the clients address must be set.
