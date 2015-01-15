@@ -2,25 +2,14 @@ package ch.bfh.btx8081.w2014.red.health;
 
 import models.User;
 
-
-
-
-
-
-
-
-
 import ch.bfh.btx8081.w2014.red.health.MenuWindow.Section;
 import ch.bfh.btx8081.w2014.red.health.MenuWindow.State;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.VaadinSession;
-import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
