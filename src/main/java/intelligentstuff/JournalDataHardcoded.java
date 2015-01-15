@@ -1,21 +1,24 @@
 package intelligentstuff;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-
-
-
 import models.JournalEntry;
-import models.User;
 
-
+/**
+ * For testing purposes, this class adds test journal entries to the project. 
+ *  * 
+ * @author david
+ *
+ */
 public class JournalDataHardcoded implements JournalDataSource{
 	
 	private static JournalDataHardcoded instance;
 	private static List<JournalEntry> journalEntries;
 	
+	/**
+	 * The constructor generates an ArrayList with several hardcoded journal entries.
+	 */
 	private JournalDataHardcoded() {
 		journalEntries = new ArrayList<JournalEntry>();
 
@@ -39,6 +42,11 @@ public class JournalDataHardcoded implements JournalDataSource{
 
 	}
 	
+	/**
+	 * This method generates the only instance of the JournalDataHardoced class
+	 * 
+	 * @return instance of JournalDataHardcoded
+	 */
 	public static JournalDataHardcoded getInstance () {
 		if(JournalDataHardcoded.instance == null) {
 			JournalDataHardcoded.instance = new JournalDataHardcoded();

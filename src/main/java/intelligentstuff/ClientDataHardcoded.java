@@ -10,11 +10,20 @@ import models.Doctor;
 import models.Person;
 import models.User;
 
+/**
+ * For testing purposes, this class adds test clients to the project. 
+ * 
+ * @author raphael
+ *
+ */
 public class ClientDataHardcoded implements ClientDataSource {
 
 	private static ClientDataHardcoded instance;
 	private static List<Client> clients;
 	
+	/**
+	 * The constructor generates an ArrayList with several hardcoded clients.
+	 */
 	@SuppressWarnings("deprecation")
 	private ClientDataHardcoded() {
 		clients = new ArrayList<Client>();
@@ -32,6 +41,11 @@ public class ClientDataHardcoded implements ClientDataSource {
 		clients.add(new Client(6, "Sasha", "Grey", new Address("Tubestreet", "6666", "Interwebs", "United States"), new Date(1988, 01, 01), "sg@gmx.ch", "002493938", "8437894839", "079585858", "",true, emer1, zoid));
 	}
 	
+	/**
+	 * This method generates the only instance of the UserDataHardcoded class
+	 * 
+	 * @return instance of UserDataHardcoded
+	 */
 	public static ClientDataHardcoded getInstance () {
 		if(ClientDataHardcoded.instance == null) {
 			ClientDataHardcoded.instance = new ClientDataHardcoded();

@@ -9,14 +9,21 @@ import java.util.List;
 import models.Address;
 import models.User;
 
-// @authors  Florian Schnyder, Philipp Schaad
-
+/**
+ * For testing purposes, this class adds test users to the project. For example,
+ * this test users are used to test the password handling.
+ * 
+ * @author florian, philipp
+ *
+ */
 public class UserDataHardcoded implements UserDataSource {
 
 	private static UserDataHardcoded instance;
 	private static List<User> users;
 
-	// The constructor generates an ArrayList with several hardcoded users.
+	/**
+	 * The constructor generates an ArrayList with several hardcoded users.
+	 */
 	@SuppressWarnings("deprecation")
 	private UserDataHardcoded() {
 		users = new ArrayList<User>();
@@ -45,7 +52,11 @@ public class UserDataHardcoded implements UserDataSource {
 		users.add(3, testUser4);
 	}
 
-	// This method generates the only instance of the UserDataHardcoded class
+	/**
+	 * This method generates the only instance of the UserDataHardcoded class
+	 * 
+	 * @return instance of UserDataHardcoded
+	 */
 	public static UserDataHardcoded getInstance() {
 		if (UserDataHardcoded.instance == null) {
 			UserDataHardcoded.instance = new UserDataHardcoded();
@@ -86,7 +97,14 @@ public class UserDataHardcoded implements UserDataSource {
 		return null;
 	}
 
-	// This method hashes the passwords for the hardcoded Users
+	/**
+	 * This method hashes the passwords for the hard coded Users.
+	 * 
+	 * @param password
+	 *            : String - the user password
+	 * @return a String with the hashed password value or an empty string if the
+	 *         method needs to catch a NoSuchAlgorithmEception
+	 */
 	public String getHashAsString(String password) {
 		byte[] passwordHashByte = null;
 		MessageDigest md;
