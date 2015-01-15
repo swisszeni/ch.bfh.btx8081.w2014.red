@@ -2,6 +2,8 @@ package ch.bfh.btx8081.w2014.red.health;
 
 import models.Client;
 import models.JournalEntry;
+import ch.bfh.btx8081.w2014.red.health.MenuWindow.Section;
+import ch.bfh.btx8081.w2014.red.health.MenuWindow.State;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
@@ -139,5 +141,27 @@ public class JournalView extends CustomComponent implements View, IMenuListable 
 		 journalEntries.addAll(JournalDataHardcoded.getInstance().getJournalEntries(currentClientNr));
 	}
 	
+	@Override
+	public String getMenuDisplayName() {
+		return "Journal";
+	}
 
+	@Override
+	public String getURISubpath() {
+		return MainUI.JOURNALVIEW;
+	}
+
+	@Override
+	public boolean shouldDisplayWithState(State state) {
+		if(state==State.CLIENTACTIVE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public Section displayInSection() {
+		return Section.PATIENT;
+	}
 }

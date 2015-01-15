@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
 
+import models.Client;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
@@ -126,15 +128,14 @@ public class MainUI extends UI {
 				removeExternalMenuElements();
 				
                 // Check if user is logged in or loginview is requested
-                boolean isLoggedIn = getSession().getAttribute("user") != null;
                 boolean isLoginView = event.getNewView() instanceof LoginView;
 
-                if (!isLoggedIn && !isLoginView) {
+                if (!isLoggedIn() && !isLoginView) {
                     // viewing not permitted, redirect to login
                     getNavigator().navigateTo(LOGINVIEW);
                     return false;
 
-                } else if (isLoggedIn && isLoginView) {
+                } else if (isLoggedIn() && isLoginView) {
                     // loginview requested while logged in... very stupid
                     return false;
                 }
@@ -148,6 +149,18 @@ public class MainUI extends UI {
 				
 			}
 		});
+    }
+    
+    public boolean isLoggedIn() {
+    	return getSession().getAttribute("user") != null;
+    }
+    
+    public boolean hasSelectedClient() {
+    	return getSession().getAttribute("client") != null;
+    }
+    
+    public Client getSelectedClient() {
+    	return (Client)getSession().getAttribute("client");
     }
     
     protected void addMenuElement(Component c) {

@@ -10,6 +10,9 @@ import models.User;
 
 
 
+import ch.bfh.btx8081.w2014.red.health.MenuWindow.Section;
+import ch.bfh.btx8081.w2014.red.health.MenuWindow.State;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -58,5 +61,29 @@ public class LandingView extends CustomComponent implements View, IMenuListable 
 		// Setting the welcome text
 		User loggedInUser = (User) getSession().getAttribute("user");
 		hello.setCaption("Hello " + loggedInUser.getFirstName() + " " + loggedInUser.getLastName());
+	}
+	
+	@Override
+	public String getMenuDisplayName() {
+		return "Home";
+	}
+
+	@Override
+	public String getURISubpath() {
+		return MainUI.LANDINGVIEW;
+	}
+
+	@Override
+	public boolean shouldDisplayWithState(State state) {
+		if(state==State.LOGGEDOUT) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	@Override
+	public Section displayInSection() {
+		return Section.MAIN;
 	}
 }
